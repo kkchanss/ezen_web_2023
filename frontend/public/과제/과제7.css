@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.img{
+	border-bottom: solid 1px #C5C5C5;
+}
+
+.content{
+	border: solid 1px #C5C5C5;
+	width:480px;
+	margin: 0 auto; /* 가로 가운데 정렬 */
+}
+
+.color{
+	color: orange;
+}
+
+.contents{
+	padding: 20px;
+}
+h4{ margin-bottom: 10px;}
+
+/* list-style-type: none; */
