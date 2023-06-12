@@ -1,5 +1,6 @@
 @charset "UTF-8";
 .title{
+	
 	text-align: center;
 	padding-top: 50px;
 }
@@ -20,7 +21,45 @@
 	color: #95908E;
 }
 
-#t1{
-	font-size: 13px;
-	text-align: right;
+.btn1{
+	border: solid 1px #eeeeee;
+	width: 360px;
+	height: 40px;
+	background-color: yellow;
+	margin-bottom: 15px;
 }
+
+.btn2{
+	border: solid 1px #F0F0F0;
+	width: 360px;
+	height: 40px;
+	background-color: #F0F0F0;
+}
+
+.list{
+	font-size: 10px;
+	text-align: right;
+	margin-bottom: 30px;
+	margin-right: 70px;
+}
+
+.list2{
+	font-size: 13px;
+	text-align: center;
+}
+
+.list3{
+	font-size: 10px;
+	text-align: center;
+}
+
+.t1{
+	padding-left: 35px;
+	text-align: left;
+	font-size: 13px;
+}
+
+#b{
+	font-weight: bold;
+}
+
