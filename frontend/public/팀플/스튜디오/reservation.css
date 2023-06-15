@@ -21,6 +21,10 @@ a{
 	padding: 20px;
 }
 
+.h_logo{
+	font-weight: bold;
+}
+
 .h_menu li{
 	display: inline-block;
 	margin-left: 20px;
@@ -127,26 +131,31 @@ a{
 	background-color: #292C32;
 	color: white;
 	font-size: 14px;
+	width:100%;
 	
 }
 
 .ft_content{
+	padding:30px;
 	width: 1200px;
 	margin: 0 auto;
 	display: flex;
-	justify-content: space-between;
-	
+	justify-content: space-between; 
 }
 
 .ft_left{
-	display: block;
+	display: inline-block;
 	margin-top: 20px;
 	line-height: 150%;
 	
 }
 
+.ft_left h3{
+	font-size: 20px;
+}
+
 .ft_center{
-	display: flex;
+	display: inline-block;
 	justify-content: space-between;
 	margin-top: 20px;
 	line-height: 150%;
@@ -154,5 +163,15 @@ a{
 
 .ft_right{
 	display: flex;
+	margin-top: 20px;
+	line-height: 150%;
 }
 
+.ft_right li{
+	margin-right: 5px;
+}
+
+.main_center{
+	font-size:12px;
+	margin-bottom: 10px;
+}

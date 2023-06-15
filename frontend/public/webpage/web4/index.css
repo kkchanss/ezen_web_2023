@@ -214,3 +214,76 @@ li{ list-style-type: none; }
 	margin: 10px;
 	width: 40px;
 }
+
+#footer{
+	width:100%; margin: 0 auto;
+}
+
+.top_ft{
+	background-color: #f7f7f7;
+}
+
+.content_ft{
+	width:1400px; 
+	margin: 0 auto;
+	display: flex; justify-content: space-between;
+	padding: 50px 10px;
+}
+
+.content_ft h3{
+	margin: 10px 0px;
+	font-size: 16px;
+}
+
+.ft_menu{
+	line-height: 220%;
+}
+
+.bottom_ft{
+	padding: 30px;
+	text-align: center;
+	color: #A4A6A4;
+	font-size: 8px;
+}
+
+/* ------------ 팝업 -----*/
+
+#popup_wrap{
+	position: fixed;
+	right: 0px; top:30%;
+}
+
+
+/* #popup_wrap ul{
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}  */
+
+#popup_wrap li{
+	width: 25px; height: 25px;
+	background-color: #f7f7f7;
+	padding: 13px;
+	border: 1px solid #dbdbdb;
+	text-align: center;
+}
+
+#popup_wrap img{
+	height: 23px;
+}
+
+.popup_item{ position: relative;}
+.popup_item .sub_item{
+	position: absolute;
+	top:5px; right:50px;
+	display: none;
+	width: 80px; height: 15px;
+	background-color: black;
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.popup_item:hover .sub_item{
+	display: block;
+}
