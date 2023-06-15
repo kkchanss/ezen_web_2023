@@ -1,4 +1,7 @@
 @charset "UTF-8";
+
+
+
 *{
 	padding:0px;
 	margin:0px;
@@ -28,7 +31,7 @@ a{
 
 #main_img{
 	margin: 0 auto;
-	background-image: url("img/sub_reservation.jpg");
+	background-image: url("img/sub_intro.jpg");
 	width:1200px;
 	height:300px;
 	display: flex;
@@ -45,6 +48,10 @@ a{
 	font-size: 12px;
 }
 
+.the{
+	color:blue;
+}
+
 /* --------------- 본문 ------------- */
 #content{
 	width:1200px;
@@ -53,44 +60,10 @@ a{
 	display: flex;
 }
 
-.calendar{
-	width:600px;
-	background-color: #FCF9EA;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
+.cont_img{
+	padding:20px;
 }
 
-.cal_table{
-	
-	border-collapse:collapse;
-	background-color: white;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 20px;
-	font-size: 12px;
-}
-
-.calendar li{
-	padding:10px;
-}
-
-.cal_main td{
-	width: 70px;
-}
-
-.cal_sub td{
-	vertical-align: top;
-	text-align:left;
-	width: 70px;
-	height: 70px;
-}
-
-.cal_sun{
-	color: red;
-}
-
-/* ---------- 캘린더 end  -------- */
 
 .main_content{
 	padding:20px;
@@ -98,7 +71,6 @@ a{
 }
 
 .main_content h3{
-	border-left: 3px solid black;
 	padding-left: 10px;
 	margin: 10px;
 }
@@ -116,10 +88,34 @@ a{
 .main_content p{
 	padding:10px;
 	font-size: 12px;
-	color: green;
 }
 
 #footer{
 	background-color: #292C32;
+	color: white;
+	
+}
+
+.ft_content{
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.ft_left{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	line-height: 150%;
+	
+}
+
+.ft_center{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	line-height: 150%;
 }
 
