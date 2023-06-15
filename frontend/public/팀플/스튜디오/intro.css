@@ -17,16 +17,28 @@ a{
 }
 
 #header{
-	margin: 0 auto;
 	width: 800px;
 	display: flex;
 	justify-content: space-between;
-	padding: 20px;
+	align-items: center;
+	margin: 0 auto;
+	
 }
 
-.h_menu li{
+.h_left span{
+	color : #145FC1;
+}
+
+.h_right li{
 	display: inline-block;
-	margin-left: 20px;
+	margin: 15px;
+	font-weight: bold;
+	align-items: center;
+	font-size: 12px;
+}
+
+.h_right a:hover , .h_left:hover{
+	background-color: lightgray;
 }
 
 #main_img{
@@ -58,7 +70,7 @@ a{
 	margin: 0 auto;
 	padding: 20px;
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 .cont_img{
@@ -68,8 +80,8 @@ a{
 
 
 .main_content{
-	padding:20px;
-	margin:10px;
+/* 	padding:20px;
+	margin:10px; */
 }
 
 .main_content h3{
@@ -92,6 +104,47 @@ a{
 	font-size: 12px;
 }
 
+.intro1{
+	margin-bottom: 50px;
+	
+}
+.intro1 img{
+	width : 360px;
+	
+}
+
+.intro1_text{
+		width : 328px;
+		line-height: 200%;
+		font-size: 12px;
+		padding: 17px;
+		
+}
+.intro1_text p{
+	margin-top: 20px;
+	
+}
+.intro1_text h2 , .intro_text h4{
+	font-weight: 800;
+}
+
+.m_bottom{
+	width: 100%;
+	background-color: #EEEEEE;
+
+
+
+}
+.d2{
+	display: flex;
+	justify-content: flex-start;
+	width:800px;
+	margin: 0 auto;
+	padding-top: 50px; 
+	
+}
+
+
 #footer{
 	background-color: #292C32;
 	color: white;
@@ -102,7 +155,7 @@ a{
 
 .ft_content{
 	padding:30px;
-	width: 1200px;
+	width: 1000px;
 	margin: 0 auto;
 	display: flex;
 	justify-content: space-between; 
