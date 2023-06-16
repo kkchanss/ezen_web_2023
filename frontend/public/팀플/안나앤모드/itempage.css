@@ -1,0 +1,167 @@
+@charset "EUC-KR";
+
+/* 전체 구역 */
+*{
+	margin: 0px; padding: 0px;
+}
+
+/* li 글머리 제거 */
+li{
+	list-style-type: none;
+}
+
+/* a 태그 적용 */
+a{
+	color: black; text-decoration: none;
+}
+
+/* 본문 */
+#content{
+	width: 1000px;
+	display: flex;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 20px;
+}
+
+/* 본문 이미지 설정 */
+.cont_img{
+	border-right: 1px solid #E0E0E0;
+	padding: 50px;
+}
+
+.cont_img img{
+	width: 300px;
+}
+
+/* 본문 내용 설정 */
+.items{
+	width: 400px;
+	padding: 50px;
+	display: flex;
+	flex-direction: column;
+	vertical-align: top;
+}
+
+/* 상품 내용 */
+.item_cont{
+	color: #5E5E5E;
+	font-size: 13px;
+	margin-bottom: 20px;
+}
+
+/* 상품 가격 */
+.item_price{
+	width: 165px;
+	display: flex;
+	justify-content: space-between;
+	color: #97968F;
+	font-size: 11px;
+	margin-bottom: 10px;
+	
+}
+
+.item_price .price_num{
+	text-decoration:line-through; 
+}
+
+/* 상품 할인 가격 */
+.item_dis_price{
+	width: 250px;
+	color: #404A7C;
+	font-size: 12px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+
+
+.item_dis_price .text_black{
+	color: black;
+	font-weight: normal;
+}
+
+/* 상품 선택 */
+
+.item_select{
+	color: #97968F;
+	font-size: 13px;
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0px;
+}
+
+.item_select select{
+	width: 280px; height: 30px;
+}
+
+/* 제품 최종 */
+
+.item_final{
+	border-top: 1px solid #eeeeee;
+	padding: 10px;
+	font-size: 12px;
+	background-color: #FBFBFB;
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	align-items: center;
+}
+
+.item_final .final_list{
+	text-align: left;
+	line-height: 150%;
+}
+
+.final_list .text_gray{
+	color: #97968F;
+	font-size: 10px;
+}
+
+.item_final .number{
+	width: 40px; height: 15px;
+}
+
+/* 최종 가격 */
+.final_price {
+	text-align: right;
+	color: #97968F;
+	font-size: 13px;
+	padding: 20px 0px;
+}
+
+.final_price .bold{
+	font-weight: bold;
+}
+
+.final_price .price{
+	color: black;
+	font-size: 14px;
+}
+
+/* 제품 버튼들 */
+.item_btn input{
+	width: 128px; height: 45px;
+	border: 1px solid #97968F;
+	background-color: white;
+	color: #777777;
+	font-size: 14px;
+}
+
+.item_btn input:hover{
+	border: 2px solid black;
+}
+.item_btn .buy{
+	background-color: #5E5E5E;
+	color: white;
+	
+}
+
+.item_btn .buy:hover{
+	background-color: black;
+	border: 1px solid black;
+}
+
+
