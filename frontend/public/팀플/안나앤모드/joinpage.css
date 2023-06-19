@@ -1,1 +1,122 @@
 @charset "UTF-8";
+
+/* 전체 구역 */
+*{
+	margin: 0px; padding: 0px;
+}
+
+/* li 글머리 제거 */
+li{
+	list-style-type: none;
+}
+
+/* a 태그 적용 */
+a{
+	color: black; text-decoration: none;
+}
+
+#wrap{
+	width:600px;
+	margin: 0 auto;
+}
+
+.back_btn{
+	border-radius: 30px;
+	width: 90px;
+	padding: 5px;
+	border: 1px solid #EFEFEF;
+	background-color: white;
+	margin-top: 50px;
+}
+
+#content{
+	width:600px;
+	text-align: center;
+}
+
+
+.main_logo{
+	/* text-align: center; */
+	margin: 20px;
+}
+
+.main_logo img{
+	width: 230px;
+}
+
+.main_content{
+	padding:20px;
+	width:460px;
+	margin:0 auto;
+}
+
+.main_content h1{
+	text-align: left;
+	font-size: 22px;
+	margin-bottom: 20px;
+}
+
+.main_content p{
+	margin-bottom: 40px;
+	text-align: left;
+}
+
+.main_content .kakao_box{
+	display: flex;
+	background-color: #FEE500;
+	height:60px;
+	justify-content: space-around;
+}
+
+.kakao_box .kakao_icon{
+	text-align: left;
+}
+
+.main_content .kakao_btn{
+	width: 300px; 
+	border: none;
+	background-color: #FEE500;
+	font-weight: bold;
+	font-size: 15px;
+	margin-bottom: 20px;
+}
+
+.main_content .img_list{
+	width:460px;
+}
+
+.main_content .or{
+	color: #B9B2B2;
+	font-size: 13px;
+	margin-bottom: 30px;
+}
+
+.main_content .line{
+	
+}
+
+.main_content .join{
+	font-weight: bold;
+	font-size: 13px;
+	margin-bottom: 30px;
+}
+
+#footer{
+	margin: 20px;
+	border-top: 2px solid black; 
+}
+
+.ft_content p{
+	margin-top: 20px;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.ft_content .bold{
+	font-weight: bold;
+}
+
+.ft_content .final_text{
+	font-size: 12px;
+	color:#8F918F;
+}
