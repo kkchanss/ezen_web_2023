@@ -8,6 +8,7 @@ a{color: black; text-decoration: none;}
 
 /* -------------- 헤더 (오창현) -------------- */
 
+
 #warp{
    margin: 0 auto;
    align-items: center;
@@ -97,7 +98,6 @@ a{color: black; text-decoration: none;}
    height: 150px;
    padding: 10px 10px;
    text-decoration: underline;
-   background-color: white;
 }
 
 
@@ -185,6 +185,7 @@ a{color: black; text-decoration: none;}
    height: 90px;
    padding: 10px 10px;
    text-decoration: underline;
+   background-color: white;
 }
 
 
@@ -246,129 +247,99 @@ a{color: black; text-decoration: none;}
 
 /* -------------- 헤더 끝 (오창현) -------------- */
 
-/* -------------- QnA 페이지 (김찬희) -------------- */
+/* -------------- 메인페이지 (황기준) -------------- */
+
+.mainpage_top{
+   display:flex;
+   justify-content: center;
+}
+
+.mainpage_bottom{
+   display:flex;
+   justify-content: center;
+}
+.mainpage_bottom img {
+   margin-right:  15px;
+   margin-top: 50px;
+}
 
 
-/* 본문 */
-#content{
-   width: 1200px;
-   margin: 0 auto;
+/* ---- 메인페이지 내용 ----  */
+.mainpage_note{
+   font-size: 17px;
+   font-weight: bold;
    text-align: center;
+   padding: 100px 0px 50px 0px;
+   justify-content: center;
 }
+.mainpage_note h3{
+   font-family: 'Noto Serif','NanumGothic','Open Sans','PT Sans','malgun gothic','돋움',Dotum,Helvetica,'Apple SD Gothic Neo',Sans-serif;
+   font-size: 17px;
+   font-weight: 400;
+   padding-bottom: 20px;
+ }
+ 
+.mainpage_note img{
+   width:15px;
+ }
 
-/* 타이틀 */
-.title{
-   font-size: 18px;
-   padding: 30px;
-   color: #555555;
-   font-weight: normal;
-}
-
-/* QnA 버튼 */
-.qna_btn{
-   margin-bottom: 50px;
-}
-
-.qna_btn input{
-   width:150px; height:50px;
-   margin: 0px 5px;
-   border: 1px solid #DADADA;
-   background-color: white;
-}
-
-.qna_btn input:hover{
-   border: 1px solid #666666;
-}
-
-/* 검색 */
-.qna_search{
-   text-align: right;
-}
-
-.qna_search .search_list{
-   width: 80px; height: 30px;
-   border: 1px solid #DADADA;
-}
-
-.qna_search .search_list:hover{
-   border: 1px solid #666666;
-}
-
-.qna_search .search_text_box{
-   height: 26px;
-   border: 1px solid #DADADA;
-}
-
-.qna_search .search_text_box:hover{
-   border: 1px solid #666666;
-}
-
-
-.qna_search .search_btn{
-   background-image: url("img/search_btn.png");
-   width: 67px; height: 35px;
-   /* border: 1px solid #DADADA; */
-   border: none;
-   margin-bottom: 5px;
-   vertical-align: middle;
-}
-
-/* 게시물 */
-.qna_list_box{
-   display: flex;
-   justify-content: space-around;
-   margin-bottom: 20px;
-}
-
-.qna_list{
-   border-collapse: collapse;
-   color: #A8A8A8;
-   
-}
-
-.qna_list td, .qna_list th{
-   border-bottom: 1px solid #dadada;
-   border-top: 1px solid #dadada;
-   padding: 10px;
-}
-
-.qna_list .list_center{
-   width:970px;
-}
-
-.qna_list .list_center_td{
-   color: black;
-   text-align: left;
-}
-
-.qna_list .mode_color{
-   color:#666666;
-}
-
-/* 현재 페이지 */
-
-.page{
-   margin: 0 auto;
+/*---- 메인페이지 제품들 ---- */
+.mainpage_items{
+   width:1200px;
+   flex-wrap: wrap;
    display: flex;
    justify-content: space-between;
-   width:80px;
-   text-align: center;
+   margin:0 auto;
 }
 
-.page span{
-   display: flex;
-   align-items:center;
-   justify-content:center;
-   width:30px; height:30px;
+.mainpage_item{
+   padding-bottom: 60px;
+}
+.mainpage_item img{
+   width: 280px;
 }
 
-.page span:hover{
-   background-color: #555555;
-   color: white;
+.mainpage_item_name{
+   border-bottom: 1px solid #f0f0f0;
+   font-size: 12px;
+   color:#7a7a7a;
+   padding: 10px 0 8px 0;
+   margin: 0 0 8px 0;
+}  
+  
+.mainpage_item_description{
+   font-size: 12px;
+   color:#c3c3c3;
+   padding: 1px 0;
 }
 
+.mainpage_item_price_p{
+   font-size: 12px;
+   color: #7a7a7a;
+   text-decoration: line-through;   
+}
 
-/* -------------- QnA 페이지 끝 (김찬희) -------------- */
+.mainpage_item_price_last{
+   font-size: 12px;
+   color: #7a7a7a;
+}
+
+.mainpage_item_price_disc_h{
+   font-size: 14px;
+   color: #474a9b;
+   font-weight: bold;
+} 
+   
+.mainpage_item_icon{   
+	padding: 8px 0 0 0;
+}
+
+.mainpage_item_icon img{
+    width: 50px; 
+}
+    
+
+/* -------------- 메인페이지 끝 (황기준) -------------- */
 
 /* -------------- 푸터 (이성호) -------------- */
 
@@ -384,7 +355,7 @@ a{color: black; text-decoration: none;}
 /*푸터 상단 시작*/
 .ft_top{
    width: 1200px; margin: 0 auto;
-   display: flex; 
+   display: flex;
    padding: 50px;
       /*위에 태두리*/
 }
@@ -443,3 +414,7 @@ a{color: black; text-decoration: none;}
 }
 
 /* -------------- 푸터 끝 (이성호) -------------- */
+
+
+
+
