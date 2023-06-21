@@ -32,5 +32,81 @@
 
  */
 
+let idArr = [];
+let pwArr = [];
+
+function fjoin() {
+	// 가져오기
+	
+	let idIn = document.querySelector('.idIn');
+	let pwIn = document.querySelector('.pwIn');
+	
+	
+	if(idIn.value == '') {
+		alert('아이디를 입력해주세요')
+	}
+	else if(pwIn.value == '') {
+		alert('패스워드를 입력해주세요')
+	}
+	else {
+		if(idArr.indexOf(idIn.value) != -1 ) {
+			alert('이미 있는 아이디입니다')
+		}
+		else if(pwArr.indexOf(pwIn.value) != -1 ) {
+			alert('이미 있는 비밀번호입니다')
+		}
+		else {
+			if(idIn.value.length < 8) {
+				alert('아이디를 8자 이상으로 입력해주세요')
+			}
+			else if(pwIn.value.length < 8) {
+				alert('비밀번호를 8자 이상으로 입력해주세요')
+			}
+			else{
+				alert('회원가입 완료!')
+				idArr.push(idIn.value);
+				pwArr.push(pwIn.value);
+			}
+		}
+	}
+	
+	idIn.value = ''
+	pwIn.value = ''
+}
  
+function flogin() {
+	// 가져오기
+	
+	let idOut = document.querySelector('.idOut');
+	let idOut2 = idOut.value;
+	let pwOut = document.querySelector('.pwOut');
+	let pwOut2 = pwOut.value;
+	if(idOut2 == '') {
+		alert('아이디를 입력해주세요')
+	}
+	else if(pwOut2 == '') {
+		alert('패스워드를 입력해주세요')
+	}
+	else{
+		if(idArr.indexOf(idOut2) != -1) {
+			if(pwArr.indexOf(pwOut2) != -1) {
+				if(idArr.indexOf(idOut2) == pwArr.indexOf(pwOut2)) {
+					alert('로그인 성공');
+				}
+				else{
+					alert('아이디 혹은 비밀번호가 일치하지 않습니다.')
+				}
+			}	
+			else{
+				alert('비밀번호가 일치하지 않습니다.')
+			}
+		}
+		else {
+			alert('아이디가 일치하지 않습니다.' + idOut2 + ' test' + idArr)
+		}
+	}
+	
+	idOut.value = ''
+	pwOut.value = ''
+}
  

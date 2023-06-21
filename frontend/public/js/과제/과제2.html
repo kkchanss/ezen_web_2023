@@ -7,22 +7,33 @@
 </head>
 <body>
 
+	<script src="과제2.js" type="text/javascript"></script>
+
 	<div id="wrap">
-		<div id="join">
-			<h2>회원가입 창</h2>
+		<div class="join">
+			<h2 class="title">회원가입 창</h2>
 			<form>
-				아이디 : <input class="idIn" type="text"> <br/>
-				비밀번호 : <input class="passIn" type="password"> <br/>
-				<input onclick="fjoin()" type="submit" value="회원가입">
+				<div class="formIn">
+					<div>
+						<input class="idIn" type="text" placeholder="아이디 입력"> <br/>
+						<input class="pwIn" type="password" placeholder="비밀번호 입력"> <br/>
+					</div>
+					<input class="form_btn" onclick="fjoin()" type="button" value="회원가입">
+				</div>
+				
 			</form>
 		</div>
 		
-		<div id="login">
-			<h2>로그인 창</h2>
+		<div class="login">
+			<h2 class="title">로그인 창</h2>
 			<form>
-				아이디 : <input class="idIn" type="text"> <br/>
-				비밀번호 : <input class="passIn" type="password"> <br/>
-				<input onclick="flogin()" type="submit" value="로그인">
+				<div class="formIn">
+					<div>
+						<input class="idOut" type="text" placeholder="아이디 입력"> <br/>
+						<input class="pwOut" type="password" placeholder="비밀번호 입력"> <br/>
+					</div>
+					<input class="form_btn" onclick="flogin()" type="button" value="로그인">
+				</div>
 			</form>
 		</div>
 	</div>
