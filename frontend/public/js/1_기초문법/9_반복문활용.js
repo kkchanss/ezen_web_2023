@@ -220,3 +220,92 @@ console.log(output)
        }
     }
 */
+
+
+/*
+	문제11) ex 7
+	
+	*     *
+	**   **
+	*** ***
+	*******
+	*** ***
+	**   **
+	*     *
+*/
+
+output='' 
+
+let value11 = prompt('문제11 : ')
+let value11_1 = Math.floor(value11/2)
+let value11_2 = value11_1
+
+for(let i = 0, z = value11-2; i < value11_1; i++, z-=2) {
+	for(let k = 0; k <= i; k++) {
+		output+='*'
+	}
+	for(let j = 0; j < z; j++) {
+		output+=' '
+	}
+	for(let k = 0; k <= i; k++) {
+		output+='*'
+	}
+	output+='\n'
+}
+for(let i = 0; i < value11; i++) {
+	output+="*"
+}
+
+output+='\n'
+for(let i = 0, z = 0; i < value11_1; i++, z+=2, value11_2--) {
+	for(let k = 0; k < value11_2; k++) {
+		output+='*'
+	}
+	for(let j = 0; j <= z; j++) {
+		output+=' '
+	}
+	for(let k = 0; k < value11_2; k++) {
+		output+='*'
+	}
+	output+='\n'
+}
+
+console.log(output)
+
+/* 문제12) 
+*******
+ *****
+  ***
+   *
+  ***
+ *****
+*******
+*/
+
+output='' 
+
+let value12 = prompt('문제12 : ')
+let value12_1 = Math.round(value12/2)
+let value12_2 = Math.floor(value12/2)
+let value12_3 = value12_2-1;
+for(let i = 0, z = value12;  i < value12_1; i++, z-=2) {
+	output+='**************'
+	for(let k = 0; k <= i; k++ ){
+		output+=' '
+	}
+	for(let j = 0; j < z; j++) {
+		output+='*'
+	}
+	output='\n'
+}
+output+='**************'
+for(let i = 0, z = 1;  i < value12_2; i++, z+=2, value12_3--) {
+	for(let k = 0; k <= value12_3; k++ ){
+		output+=' '
+	}
+	for(let j = 0; j < z; j++) {
+		output+='*'
+	}
+	output+='\n'
+}
+console.log(output)
