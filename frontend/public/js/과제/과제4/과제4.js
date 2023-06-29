@@ -66,7 +66,7 @@ function 보기(index) {
 	let name = memberList[index].name;
 	
 	let lists = '';
-	lists += `<li>제목 : ${title}</li><li>내용 : ${content}</li><li>작성자 : ${name}</li> <li><button onclick="삭제(${index})">삭제</button></li>`
+	lists += `<li>제목 : ${title}</li><li>내용 : ${content}</li><li>작성자 : ${name}</li> <li><button onclick="삭제(${index})">삭제</button> <button onclick="수정(${index})">수정</button></li>`
 	
 	let read_ul = document.querySelector('.read_ul');
 	read_ul.innerHTML = lists;
@@ -84,8 +84,46 @@ function 삭제(index){
 		목록();
 	}
 	else{
-		alert('틀렸습니다 다시 입력해주시길 바랍니다.')
+		alert('틀렸습니다. 다시 입력해주시길 바랍니다.')
 		return;
 	}
 }
 
+function 수정(index){
+	let pwd = memberList[index].pwd;
+	let pwd1 = prompt('비밀번호를 입력해주세요 : ');
+	if(pwd1 == pwd) {
+		let title = memberList[index].title;
+		let content = memberList[index].content;
+		let name = memberList[index].name;
+		let lists = '';
+		
+		lists += `<li>제목 : <input class="titleIn" type="text" value="${title}"/></li>
+				<li>내용 : <textarea class="contentIn" rows="10px" cols="50px">${content}</textarea></li>
+				<li>작성자 : ${name}</li>
+				<li><button onclick="수정완료(${index})">수정하기</button></li>`
+		
+		let read_ul = document.querySelector('.read_ul');
+		read_ul.innerHTML = lists;
+		
+	}
+	else{
+		alert('틀렸습니다. 다시 입력해주시길 바랍니다.')
+		return;
+	}
+}
+
+function 수정완료(index) {
+	let titleIn = document.querySelector('.titleIn').value;
+	console.log(titleIn)
+	let contentIn = document.querySelector('.contentIn').value;
+	console.log(contentIn)
+	let name = memberList[index].name;
+	memberList[index].title = titleIn;
+	
+	memberList[index].content = contentIn;
+	
+	alert('수정이 완료되었습니다.')
+	목록();
+	보기(index);
+}
