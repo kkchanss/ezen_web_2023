@@ -1,21 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
+	<head>
+		<link href="/frontendProject/css/index.css" rel="stylesheet">
+	</head> <!-- 링크 확인 : ctrl + 클릭 -->
+	
 	<h3>헤더입니다.</h3>
-	<ul> <!-- 메뉴 -->
+	<ul class="head_menu"> <!-- 메뉴 -->
 		<li> <a href="/frontendProject/index.jsp"> home </a> </li> <!-- a 태그 이용한 링크 (다른페이지 이동) -->
 		<li> <a href="/frontendProject/kiosk/kiosk.jsp"> 키오스크 </a> </li> <!-- a 태그 이용한 링크 (다른페이지 이동) -->
 		<li> <a href="/frontendProject/board/list.jsp"> 게시판 </a> </li> <!-- a 태그 이용한 링크 (다른페이지 이동) -->
 		<li> <a href="/frontendProject/calender/calender.jsp"> 캘린더 </a> </li> <!-- a 태그 이용한 링크 (다른페이지 이동) -->
 	</ul>
 	
+	<script src="/frontendProject/js/index.js" type="text/javascript"></script>
 	<!-- 
 		HTTP 상태 404 - 찾을 수 없음
 			- 페이지 못 찾았다 [ 1. 경로문제 2. 오타 3. 존재하지 않는 경로 ]
@@ -34,5 +31,3 @@
 			../ : 상위 폴더 이동 
 			현재 파일 기준 [ ]
 	 -->
-</body>
-</html>
