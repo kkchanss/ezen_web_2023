@@ -18,7 +18,7 @@
 			
 			<!-- 카테고리 -->
 			<ul class="categorymenu">
-		<!-- 		<li class="categoryselect"> 신제품(NEW) </li>
+		<!-- 	<li class="categoryselect"> 신제품(NEW) </li>
 				<li> 프리미엄 </li>
 				<li> 와퍼&주니어 </li>
 				<li> 치킨&슈림프버거 </li>

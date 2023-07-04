@@ -24,19 +24,42 @@ console.log('js 실행')
  	// 1. 카테고리 여러개 저장하는 배열
  let categoryList = [ '신제품(NEW)', '프리미엄', '와퍼&주니어', '치킨&슈림프버거', '올데이킹&킹모닝'];
  	// 2. 카텍리 출력 함수 정의 [ 실행조건 : 1. 페이지 열렸을때 ]
- categoryPrint(); // 최초 1번 실행
- function categoryPrint() {
+ categoryPrint(0); // 최초 1번 실행 [ 가장 앞에 있는 카테고리 선택 가정]
+ function categoryPrint(selectNo) {
+	 console.log('categoryPrint')
 	 // 1. 어디에
 	 let categorymenu = document.querySelector('.categorymenu');
 	 // 2. 무엇을
 	 let html = '';
 	 	// HTML 구성 : 배열 내 데이터(for)를 li 형식으로 출력
 	 for(let i = 0; i < categoryList.length; i++) {
-		 html+=`<li class="categoryselect"> ${categoryList[i]} </li>`
+		 if(i == selectNo) {  html+=`<li onclick="categorySelect( ${ i })" class="categoryselect"> ${categoryList[i]} </li>` }
+		 else{  html+=`<li onclick="categorySelect( ${ i })"> ${categoryList[i]} </li>` }
+		
 	 }
 	 
 	 categorymenu.innerHTML = html;
  }
  
  
- // 3. 카테고리 클릭 함수
+ // 3. 카테고리 클릭 함수 [ 실행조건 : . li에서 클릭했을때 ]
+ function categorySelect(selectNo) {
+	 console.log('categorySelect')
+	 // <li> 여러개 존재 하는데 무엇 선택했는지 식별
+	 console.log(selectNo);
+	 // 0. 카테고리의 모든 li 호출
+	 let categoryli = document.querySelectorAll('.categorymenu li'); // 해당 클래스 ul안에 있는 모든 li 호출
+	 	console.log(categoryli);
+	 // 1. 해당 선택된 인덱스의 class 추가 // !!! JS에서 class 추가 / 삭제 가능
+	 for(let i = 0 ; i < categoryList.length; i++) {
+		 // 2. 선택된 인덱스[selectNo]의 i번째 카테고리 찾기
+		 if( selectNo == i ) {
+			 // 해당 li에 class 추가	DOM객체명.classList.add('새로운클래스명')
+			 categoryli[i].classList.add('categoryselect');
+		 }else{
+			 // 해당 li에 class 삭제 DOM객체명.classList.remove('새로운클래스명')
+			 categoryli[i].classList.remove('categoryselect');
+		 }
+	 }
+	 categoryPrint(selectNo);
+ }

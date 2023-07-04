@@ -19,11 +19,13 @@
 	display: flex;
 	justify-content: space-around;
 	padding-top : 2px;
+	
 }
 
 /* 선택 안된 카테고리 */
 .categorymenu li {
 	color: #8e8e8e;
+	padding:10px;
 }
 
 /* 선택 된 카테고리 */
@@ -45,7 +47,7 @@
 
 /* 제품 1개 */
 	/* 전체 가로사이즈 : width: 700px; / 가로당 제품수 */
-.product{width: 30%; text-align: center; margin: 5px 10px 30px 10px}
+.product{width: 30%; text-align: center; margin: 5px 10px 30px 10px; }
 .product img { width: 100%; } 
 .product .pprice { color: red;}
 
@@ -56,6 +58,11 @@
 	background-color: #eeeeee;
 	/* border: 1px solid red; 확인용 */
 }
+
+.cartcontent{
+	padding-top: 10px;
+}
+
 
 /* 카트 상단 부분 */
 .carttop{
