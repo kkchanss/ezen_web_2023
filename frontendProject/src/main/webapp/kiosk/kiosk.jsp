@@ -24,14 +24,14 @@
 		<div class="kioskcontent"> <!-- 본문 : 제품 / 카트 출력 -->
 			
 			<div class="productbox"> <!-- 제품 구역 -->
-			
-				<div class="product"> <!-- 제품 1개 기준 -->
+<!-- 			
+				<div class="product"> 제품 1개 기준
 					<img src="../img/헬로디아블로와퍼.png"/>
 					<div class="pinfo">
 						<div class="pname"> 헬로 디아블로 와퍼 </div>
 						<div class="pprice"> 15,000원 </div>
 					</div>
-				</div>
+				</div> -->
 				
 			</div> <!-- 제품 구역 end -->
 			
@@ -39,17 +39,17 @@
 				<div class="cartcontent"> <!-- 제품개수/총가격, 제품정보 출력 -->
 				
 					<div class="carttop"> <!-- 제품개수/총가격 출력 구역 --> 
-						<div> 카트 <span class="ccount">3</span> </div>
-						<div> 총 주문금액 <span class="ctotal">31,000</span> </div>
+						<div> 카트 <span class="ccount">0</span> </div>
+						<div> 총 주문금액 <span class="ctotal">0원</span> </div>
 					</div>
 					
 					<div class="cartbottom"> <!-- 제품정보 출력 --> 
 					
-						<div class="citem">
-							<div class="iname"> 더블비프불고기버거 </div><!-- 제품명 -->						
-							<div class="iprice"> 12,000원 </div> <!-- 제품가격 -->
-							<span class="icencel"> X </span> <!-- 개별 취소 -->
-						</div>
+				<!-- 		<div class="citem">
+							<div class="iname"> 더블비프불고기버거 </div>제품명						
+							<div class="iprice"> 12,000원 </div> 제품가격
+							<span class="icencel"> X </span> 개별 취소
+						</div> -->
 						
 						
 					</div>
@@ -57,8 +57,8 @@
 				</div>
 				
 				<div class="cartbtn"> <!-- 버튼 구역 -->
-					<button class="cancelbtn">취소하기</button>
-					<button class="orderbtn">주문하기</button>
+					<button onclick="cartCencel()" class="cancelbtn">취소하기</button>
+					<button onclick="productOrder()" class="orderbtn">주문하기</button>
 				</div>
 				
 			</div> <!-- 카트 구역 end -->

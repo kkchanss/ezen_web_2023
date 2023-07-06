@@ -22,6 +22,14 @@ console.log('js 실행')
  	// 1. 카트(장바구니) 배열 / 선택 버거들이 저장되는 배열
  		// 1. 버거 객체 2. 버거의 식별 = 중복x -> 버거제품번호 ? 대신에 배열인덱스
  let cartList = []
+ 	// 1. 주문(주문내역) 배열
+ 		/*
+ 																[ 정해져 있는 데이터들은 숫자로 저장 -> 권장 ]
+ 			주문 { 주문번호 : , 주문날짜 : , 결제금액 : , 주문제품들 : [], 상태 : 0['주문요청'], 1['주문완료'], 2} 
+ 		*/
+ let orderList = [
+	 { ono : 1, date : '2023-07-05 13:30', pay : 30000, prodcts : [0, 0, 2]}
+ ]
 // ----------------------- 샘플 데이터 end -------------------- //
  let viewhimg = 0; // 현재 출력중인 광고이미지 인덱스 저장하고 있는 변수
  	// 2. 특정시간마다 이미지의 src 변경 하기	
@@ -45,6 +53,7 @@ console.log('js 실행')
  
  	// 2. 카텍리 출력 함수 정의 [ 실행조건 : 1. 페이지 열렸을때 ]
  categoryPrint(0); // 최초 1번 실행 [ 가장 앞에 있는 카테고리 선택 가정]
+ productPrint(0);
  function categoryPrint(selectNo) {
 	 console.log('categoryPrint')
 	 // 1. 어디에
@@ -98,7 +107,7 @@ console.log('js 실행')
 	 	for(let i = 0; i < burgerList.length; i++) { // 모든 버거배열/리스트[서랍장] 열어서[하나씩] 확인
 	 		// i번째 버거의 카테고리와 선택한 카테고리와 같으면
 			if(burgerList[i].category == categoryNo) {
-				html+=`<div onclick="productSelect(${i})" class="product"> <!-- 제품 1개 기준 -->
+				html+=`<div onclick="productSelect(${i})" class="product"> 
 					<img src="../img/${burgerList[i].img}"/>
 					<div class="pinfo">
 						<div class="pname"> ${burgerList[i].name} </div>
@@ -116,4 +125,77 @@ console.log('js 실행')
  function productSelect(productNo) { // 어떤 제품을 카트에 담을껀지 인수 판단
 	 console.log(productNo)
 	 cartList.push(productNo); console.log(cartList);
+	 cartPrint();
  }
+ 
+ // 6. 카트 출력 함수
+ function cartPrint() {
+	 console.log('cartPrint()');
+	 // 1. 어디에
+	 let cartbottom = document.querySelector('.cartbottom');
+	 let ctotal = document.querySelector('.ctotal');
+	 let total = 0;
+	 
+	 // 2. 무엇을
+	 let html = ``;
+	 for(let i = 0; i < cartList.length; i++) {
+		 let burgerIndex = cartList[i];
+		 html += `<div class="citem">
+						<div class="iname"> ${burgerList[burgerIndex].name} </div>					
+						<div class="iprice"> ${burgerList[burgerIndex].price.toLocaleString()}원 </div> 
+						<span onclick="productCancel(${i})" class="icencel"> X </span> 
+				</div>`;
+		// 3. i번째 가격을 누적합계
+		total += burgerList[burgerIndex].price;
+	 }
+	 // 3. 출력
+	 cartbottom.innerHTML = html;
+	 // * 카트 내 제품 수 출력
+	 document.querySelector('.ccount').innerHTML = `${cartList.length}`; 
+	 // * 카트 내 총 가격 출력
+	 ctotal.innerHTML = `${total.toLocaleString()}원`;
+	 // * 만약에 카트 내 제품이 많아서 가로 스크롤이 생성 되었을때 자동으로 가장 오른쪽으로 이동
+	 cartbottom.scrollLeft = 10000;
+ }
+ 
+ // 7. 카트 내 버거 부분 취소 함수 [ 실행 조건 : x버튼을 클릭했을때]
+  function productCancel(burgerIndex) { // 전체취소: 인수x 부분취소: 인수o
+  		alert('제품 취소') 
+	 	cartList.splice(burgerIndex, 1);
+	  	cartPrint();
+  }
+  
+ // 8. 카트 내 버거 전체 취소 함수 [ 실행 조건 : 취소하기 버튼을 눌렀을때]
+ function cartCencel() {
+	 cartList = []; // 배열의 모든 요소 삭제
+	 // == cartList.splice(0); 
+	 cartPrint();
+ }
+ // 9. 카트내 저장된 버거 주문(등록) 함수 [ ]
+ function productOrder() {
+	 alert('주문 했습니다')
+	 
+	 // * 주문번호 만들기
+	 let ono = orderList[orderList.length-1].ono; // 주문배열내 마지막주문의 번호
+	 let totalprice = 0;
+	 let products = []; // 주문이 들어가는 버거들 인덱스
+	 for(let i = 0; i < cartList.length; i++) {
+		 products.push(cartList[i]); // i번째 버거를 새로운 배열에 저장
+		 totalprice += burgerList[cartList[i]].price // i번째 
+	 }
+	 // 1. 주문객체 생성해서
+	 let order = {
+		 ono : ono+1, 			// 주문번호 생성해서 저장 [ 마지막 주문번호 + 1 ]
+		 date : new Date(), 	// 현재날짜/시간 구해주는 함수 이용해서 자동으로 대입
+		 pay : totalprice, 				// 주문객체 생성시 '주문요청' 으로 상태 초기로 사용
+		 prodcts : products,	// 카트에 있던 모든 제품들 // 전역변수[cartList] 대입 시 문제발생
+		 state : 0				// 주문객체 생성시 '주문요청' 으로 상태 초기로 사용
+	 }		
+	 
+	 orderList.push(order); // 주문배열에 저장하기
+	 
+	 cartCencel() // cart 비우기
+	 
+	 console.log(orderList)
+ }
+ 
