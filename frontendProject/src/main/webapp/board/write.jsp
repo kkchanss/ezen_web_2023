@@ -34,13 +34,13 @@ crossorigin="anonymous">
 
 	<%@include file="../header.jsp" %>
 	<div class="container">
-		<input  class="form-control m-3" type="text" placeholder="제목">
+		<input  class="form-control m-3 title" type="text" placeholder="제목">
 		<textarea id="summernote" class="form-control m-3" rows="10" cols="5" placeholder="내용"></textarea>
 		<input  class="form-control m-3" type="file"/>
 		
 		<div class="row justify-content-md-center">
 			<div class="col-2">
-				<input class="form-control btn btn-dark" type="button" value="등록">
+				<input onclick="onWrite()" class="form-control btn btn-dark" type="button" value="등록">
 			</div>
 			<div class="col-2">
 				<input class="form-control" type="button" value="다시쓰기">
