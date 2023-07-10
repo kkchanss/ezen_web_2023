@@ -31,14 +31,14 @@ crossorigin="anonymous">
 	</div>
 	
 	<div class="row justify-content-md-center">
-		<div class="col-1">
-			<input onclick="onWrite()" class="form-control btn btn-dark" type="button" value="삭제하기">
+		<div class="col-2">
+			<input onclick="onDelete()" class="form-control btn btn-dark" type="button" value="삭제하기">
 		</div>
-		<div class="col-1">
-			<input class="form-control" type="button" value="수정하기">
+		<div class="col-2">
+			<a href="update.jsp"><input class="form-control" type="button" value="수정하기"></a>
 		</div>
-		<div class="col-1">
-			<input class="form-control" type="button" value="목록보기">
+		<div class="col-2">
+			<a href="list.jsp"><input class="form-control" type="button" value="목록보기"></a>
 		</div>
 	</div>	
 

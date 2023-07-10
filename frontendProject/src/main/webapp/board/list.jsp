@@ -65,23 +65,23 @@ crossorigin="anonymous">
 			</thead>	
 			
 			<tbody class="tcontent">
-				<tr> <!-- 게시물 1개 행 -->
+		<!-- 		<tr> 게시물 1개 행
 					<td> 1 </td> <td> 게시물제목1 </td> <th> 유재석 </th>
 					<td> 2023-07-06 </td> <td> 312 </td> <th> 2 </th>
 				</tr>
-				<tr> <!-- 게시물 1개 행 -->
+				<tr> 게시물 1개 행
 					<td> 2 </td> <td> 게시물제목2 </td> <th> 유재석 </th>
 					<td> 2023-07-06 </td> <td> 12 </td> <th> 19 </th>
 				</tr>
 				
-				<tr> <!-- 게시물 1개 행 -->
+				<tr> 게시물 1개 행
 					<td> 3 </td> <td> 게시물제목3 </td> <th> 유재석 </th>
 					<td> 2023-07-06 </td> <td> 40 </td> <th> 20 </th>
-				</tr>
+				</tr> -->
 			</tbody>
 			
 			<tfoot>
-				<tr> <td colspan="6"> tatol : 3 </td> </tr>
+				<tr> <!-- <td colspan="6"> tatol : 3 </td> --> </tr>
 			</tfoot>
 		</table>
 		

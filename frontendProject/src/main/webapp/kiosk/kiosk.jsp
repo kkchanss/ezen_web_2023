@@ -25,7 +25,7 @@
 			
 			<div class="productbox"> <!-- 제품 구역 -->
 <!-- 			
-				<div class="product"> 제품 1개 기준
+				<div class="product"> 제품 1개 기준s
 					<img src="../img/헬로디아블로와퍼.png"/>
 					<div class="pinfo">
 						<div class="pname"> 헬로 디아블로 와퍼 </div>

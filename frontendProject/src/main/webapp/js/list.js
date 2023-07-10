@@ -32,10 +32,26 @@ function onViewLoad(no) { // 인수 : 클릭한 번호(게시물)의 번호
 		// JS는 페이지가 전환/새로고침 초기화 --> 세션/쿠키
 	// 1. 클릭된 게시물번호 세션에 저장
 	sessionStorage.setItem('no', no); // 클릭된 게시물번호 세션에 저장
+
+	increaseView(no);
+	
 	// 2. 페이지 이동
 	location.href = "view.jsp"
-		
-	
+}
+
+// 3. 조회수 증가 함수 [ 실행조건 : 클릭후 페이지 전환 전에]
+function increaseView(no) {
+	// 1. 클릭된 게시물번호의 게시물찾기
+	for(let i = 0; i < boardList.length; i++) {
+		if(boardList[i].no == no) { // 찾았다
+			// 조회수 1 증가
+			boardList[i].view++;
+			// 만약에 세션/쿠키를 사용중 이라면 ..... 
+			localStorage.setItem('boardList', JSON.stringify(boardList));
+			break;
+		}
+	}
+	alert('페이지이동')
 }
 
 
