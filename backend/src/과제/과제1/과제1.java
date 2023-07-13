@@ -5,7 +5,7 @@ public class 과제1 {
 	public static void main(String[] args) {
 		
 		// 문제1 : 4
-		// 문제2 : 2, 3, 4, 5, 6, 7
+		// 문제2 : 2, 3, 6, 7
 		/* 문제3 : 
 			정수타입 : 
 				1byte - byte
