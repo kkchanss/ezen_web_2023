@@ -10,10 +10,14 @@ console.log('calender.js')
 		// new Date(year, mnonth, 0) : [ 다음달 1일에서 -1]
 let year = new Date().getFullYear(); // 현재 연도
 let month = new Date().getMonth()+1; // 현재 월 [ 0 ~ 11 ] + 1
+
+// * 전역 배열
+let contents = [ ] // 여러개 일정객체를 저장하는 배열
 console.log(year); console.log(month);
 
 // 1. 현재 연도/월 기준으로 달력 출력 하는 함수
 calPrint();
+closeModal();
 function calPrint(){
 	// 1. 현재 연도와 월을 해당 구역에 출력하기
 	document.querySelector('.caldate').innerHTML = `${year}년 ${month}월`;
@@ -40,9 +44,28 @@ function calPrint(){
 		} // f end
 		// 2. **** 현재 달력 마지막 일까지 일수 출력
 		for(let day = 1; day <= eDay; day++) {
-			html += `<div> ${day} </div>`
-		}
+			html += `<div onclick="openModal(${day})"> ${day} 
+					${ contentPrint(`${year}-${month}-${day}`)}
+			</div>`
+			// 만약에 현재 날짜와 일정목록 등록된 일정의 날짜와 같으면 출력
+		} // f end
 	calender.innerHTML = html;
+} // f end
+
+// 6. 일정 출력함수 [ 실행조건 : 만약에 현재 날짜와 동일한 일정 날짜 찾아서 출력 ]
+	// 인수 : 함수 안으로 들어오는 수/값/코드
+	// 반환 : 함수{} 끝나고 함수 호출 했던 곳으로 수/값/코드
+function contentPrint(date) {
+	console.log(date);
+	// 인수로 들어온 날짜와 같은 일정목록에서 일정 찾기
+	let html = '';
+	for(let i = 0; i < contents.length; i++) {
+		if(date == contents[i].date) {
+			html+=`<span class="content" style="background-color : ${contents[i].color}"> ${ contents[i].content} </span>`
+		}
+	}
+	console.log('html' + html);
+	return html;
 }
 
 // 2. 버튼을 클릭했을때 현재 월 변환해주는 함수
@@ -63,3 +86,39 @@ function onNext(check) {
 	// 2. 월 증감 후 새로고침**
 	calPrint();
 }
+
+// 3. 모달 열기 
+function openModal(day) {
+	document.querySelector('.modalwrap').style.display = 'flex';
+	document.querySelector('.date').innerHTML =`${year}-${month}-${day}`;
+}
+ 
+// 4. 모달 닫기
+function closeModal() {
+	document.querySelector('.modalwrap').style.display = 'none';
+}
+
+
+// 5. 일정 등록 버튼 클릭했을 때
+function onWrite() {
+	// 1. 입력받은 값 호출
+	let color = document.querySelector('.color');
+	let contentInput = document.querySelector('.contentInput');
+	let date = document.querySelector('.date').innerHTML;
+	// 2. 가공 [ 1. 유효성 검사 2. 객체화]
+	let object = {
+		color : color.value, 
+		content : contentInput.value, 
+		date : date
+	}
+	// 3. 저장
+	contents.push(object);
+	console.log(color);
+	// 4. 비워주기
+	color.value = ''; contentInput.value = '';
+	// 5. 모달 닫기
+	closeModal();
+	console.log(contents)
+	calPrint();
+}
+

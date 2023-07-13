@@ -45,3 +45,32 @@
 .sunday{
 	background-color: red; color:white;
 }
+
+/* 모달 전체 구역 */
+.modalwrap {
+	position: fixed; /* 화면 고정 */	
+	width: 100%; height: 100%; /* 전체 구역 */
+	top: 0px;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* rgb : 0~255 색상조합 / rgba : 투명도 포함 */
+	/* 자식요소 -> 내용 박스 가운데로 */
+	display: flex; justify-content: center; align-items: center;
+}
+
+/* 모달 내용 박스 구역 */
+.modal{
+	background-color: white;
+	width: 500px; height: 300px;
+	padding: 20px; border-radius: 20px;
+}
+
+.content{
+	background-color: red;
+	margin: 3px; font-size: 10px;
+	padding: 3px; color: white;
+	display: block; /* span 태그의 기본값은 inline 이기 때문에 사이즈 적용x */
+	/* 만약에 해당 구역보다 내용물(텍스트)이 더 커지면 ... 표시해서 잘림*/
+	overflow: hidden; /* 넘치면 넘친 부분 숨기기 */
+	white-space: nowrap; /* 만약에 텍스트 커지면 자동 줄바꿈 해제 */
+	text-overflow: ellipsis; /* ellipsis : ...표시 */
+}
