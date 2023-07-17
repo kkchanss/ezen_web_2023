@@ -167,6 +167,9 @@ public class 연산20문제 {
 		max = max < num21_2 ? num21_2 : max;
 		max = max < num21_3 ? num21_3 : max;
 		System.out.println("가장 큰 수 : " + max);
+		
+		
+		
 	}
 
 }

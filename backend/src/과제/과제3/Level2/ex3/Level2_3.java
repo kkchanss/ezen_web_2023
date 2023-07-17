@@ -1,10 +1,10 @@
-package 과제.과제2.Level1.ex9;
+package 과제.과제3.Level2.ex3;
 
 import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Level1_9 {
+public class Level2_3 {
 	
 	public static void main(String[] args) {
 		System.out.println(" >> Level2_3 answer >> ");
@@ -43,7 +43,7 @@ public class Level1_9 {
 			합계 : 3개의 점수를 모두 더한 값
 			평균 : 합계 / 과목수 		[소수 첫째자리 까지 출력 ]
 			3배수 : 합계 값이 3의 배수이면 true 아니면 false
-			7배수 : 합계 값이 7의 배수이면 true 아니면 false
+			8배수 : 합계 값이 7의 배수이면 true 아니면 false
 			홀짝 : 합계 값이 홀수이면 홀수출력 아니면 짝수 출력 
 			결과 : 합계가 65점이상이면 합계 아니면 탈락 출력 
 		3. *(중요) 풀이코드에서 printf는 한번만 사용합니다.
