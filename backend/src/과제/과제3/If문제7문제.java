@@ -46,7 +46,7 @@ public class If문제7문제 {
 		else if(num3_2 != min3 && num3_2 != max3) mid3 = num3_2;
 		else mid3 = num3_3;
 		System.out.println("오름차순 : " + min3 + ", " + mid3 + ", " + max3);
-		System.out.println("오름차순 : " + max3 + ", " + mid3 + ", " + min3);
+		System.out.println("내림차순 : " + max3 + ", " + mid3 + ", " + min3);
 		
 		/* -------문제4----- */
 		System.out.print("4 점수 입력 : ");
