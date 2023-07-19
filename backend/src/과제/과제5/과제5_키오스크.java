@@ -20,11 +20,17 @@ public class 과제5_키오스크 {
 			
 			/* 문제풀이 위치 */
 			
-			int 콜라재고 = 10 ; 	int 환타재고 = 10 ; 	int 사이다재고 = 10;
+			int 콜라재고 = Integer.parseInt(재고관리.split("/")[0].split(",")[0]); 	
+			int 환타재고 = Integer.parseInt(재고관리.split("/")[0].split(",")[1]) ; 	
+			int 사이다재고 = Integer.parseInt(재고관리.split("/")[0].split(",")[2]);
 			
-			int 콜라바구니 = 0 ; 	int 환타바구니 = 0 ; 	int 사이다바구니 = 0;
+			int 콜라바구니 = Integer.parseInt(재고관리.split("/")[1].split(",")[0]) ; 	
+			int 환타바구니 = Integer.parseInt(재고관리.split("/")[1].split(",")[1]) ; 	
+			int 사이다바구니 = Integer.parseInt(재고관리.split("/")[1].split(",")[2]);
 			
-			int 콜라가격 = 300 ;	int 환타가격 = 200 ;	int 사이다가격 = 100 ; 
+			int 콜라가격 = Integer.parseInt(재고관리.split("/")[2].split(",")[0]) ;	
+			int 환타가격 = Integer.parseInt(재고관리.split("/")[2].split(",")[1]) ;	
+			int 사이다가격 = Integer.parseInt(재고관리.split("/")[2].split(",")[1]) ; 
 			
 			/*
 			 * change = Integer.parseInt(재고관리.split("/")[0].split(",")[0]); change--; 재고관리 =
