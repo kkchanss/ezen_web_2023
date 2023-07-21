@@ -34,29 +34,33 @@ public class 주차요금계산기 {
 			// 입차
 			if(num == 1) {
 				for(int i = 1; i <= 15; i++) {
-					if(fileinfo.indexOf(i + "번") == -1) {
-						System.out.print("[" + i + "]");
+					
+					if(fileinfo.indexOf(i + "번") == -1) { // 해당 자리에 주차한 사람이 없다면
+						System.out.print("[" + i + "]"); // 번호 입력
 					}
 					else {
-						System.out.print("[주차중]");
+						System.out.print("[주차중]"); // 이미 주차한 사람이 있다면 [주차중]으로 바꿔주기
 					}
-					if(i % 5 == 0) System.out.println();
+					if(i % 5 == 0) System.out.println(); // 5자리 마다 줄바꿈
 				}
+				
 				System.out.print("자리 선택 : ");
 				int seat = sc.nextInt();
 				int t = 0;
-				if(fileinfo.indexOf(seat + "번") != -1) {
+				if(fileinfo.indexOf(seat + "번") != -1) { // 이미 주차되어있는 자리라면
 					System.out.println("이미 주차되어 있는 자리입니다.");
 				}
 				else {
+					
 					System.out.print("차량 번호 입력 : ");
 					String carNum = sc.next();
 					
 					// 현재 시간
 			        LocalTime now = LocalTime.now();
-			 
+			        // 시 구하기
+			        int hour = now.getHour();
 			      
-			        
+			        // 입차차량 개수 늘려주기
 			        String outStr2 = "";
 					int inCar = Integer.parseInt(carParkArray[0].split(",")[0]);
 					inCar++;
@@ -68,8 +72,7 @@ public class 주차요금계산기 {
 					FileOutputStream fileOutputStream2 = new FileOutputStream(carParkfilePath); // 이어쓰기x
 					fileOutputStream2.write(outStr2.getBytes());
 					 
-					// 시 구하기
-			        int hour = now.getHour();
+					// 주차한 차 저장
 					String outStr = seat + "번," + carNum + "," + hour + "\n";
 					fileOutputStream.write(outStr.getBytes());
 					
@@ -90,19 +93,22 @@ public class 주차요금계산기 {
 		 
 		        // 시 구하기
 		        int hour = now.getHour();
-				boolean exist = false;
+		        
+				boolean exist = false; // 차량을 찾았는지 
+				
 				for(int i = 2; i < carParkArray.length; i++) {
-					if(carParkArray[i].split(",")[1].equals(carNum)) {
-						exist = true;
-						int mon = (hour-Integer.parseInt(carParkArray[i].split(",")[2]))*10000+5000;
+					if(carParkArray[i].split(",")[1].equals(carNum)) { // 차량번호와 일치한다면
+						exist = true; // 차량을 찾았다고 표시
+						
+						int mon = (hour-Integer.parseInt(carParkArray[i].split(",")[2]))*10000+5000; // 내야 할 금액
 						System.out.println("내야 할 금액 : " + mon);
 						System.out.print("금액 입력 : ");
 						int money = sc.nextInt();
-						if(money >= mon) {
+						if(money >= mon) { 
 							// 입차 하나 빼기
 							System.out.println(carParkArray[0].split(",")[1]);
 							
-							// 입출입 관리
+							// 입출차 관리
 							int inCar = Integer.parseInt(carParkArray[0].split(",")[0]);
 							inCar--;
 							int outCar = Integer.parseInt(carParkArray[0].split(",")[1]);
@@ -112,7 +118,7 @@ public class 주차요금계산기 {
 							carParkArray[1] = Integer.toString(sumMon);
 							
 							System.out.println("출차가 완료되었습니다\n거스름 돈 : " + (money-mon));
-							carParkArray[i] = "출차,-," + carParkArray[i].split(",")[2];
+							carParkArray[i] = "출차,-," + carParkArray[i].split(",")[2]; // 출차 상태로 변경
 							String outStr = "";
 							for(int j = 0 ; j < carParkArray.length; j++) {
 								outStr += carParkArray[j] + "\n";
@@ -126,7 +132,7 @@ public class 주차요금계산기 {
 						break;
 					}
 				}
-				if(!exist) System.out.println("일치하는 차량 번호가 없습니다.");
+				if(!exist) System.out.println("일치하는 차량 번호가 없습니다."); // 일치하는 차량번호가 없다면
 				exist = false;
 			}
 			
