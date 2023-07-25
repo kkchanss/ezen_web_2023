@@ -9,7 +9,7 @@ public class 과제5_키오스크_배열 {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		String[] 재고관리 = { "10,0,300","100,0,200","10,0,100"  };
+		String[] 재고관리 = { "콜라,10,0,300","환타,100,0,200","사이다,10,0,100"  };
 		// 배열 선언하는 방법 : 선언시 크기/길이 줄이거나 늘릴 수 없다.
 			// 1. 타입[] 변수명 = { 값1, 값2, 값3, 값4 };
 				// 배열 선언시 배열에 저장할 값을 알고 있는 상태
@@ -31,7 +31,7 @@ public class 과제5_키오스크_배열 {
 			System.out.println("\n\n-------------------- 메뉴 ------------------- ");
 			System.out.println("1.콜라[300] 2.환타[200] 3.사이다[100] 4.결제");
 			System.out.print(">>>>>> 선택 : "); int ch = scanner.nextInt();
-			
+			System.out.println(Arrays.toString(재고관리));
 			/* 문제풀이 위치 */
 			if(ch==1) {
 				// 배열호출
@@ -39,13 +39,13 @@ public class 과제5_키오스크_배열 {
 				System.out.println("배열의 변수명 호출 : " + 재고관리); // @59a6e353
 				System.out.println("배열의 변수의 값 :" + Arrays.toString(재고관리));
 				System.out.println("배열내 데이터 개수 : " + 재고관리.length);
-				System.out.println("배열내 특정(인덱스)데이터 호출 : " + 재고관리[0]);
+				System.out.println("배열내 특정(인덱스)데이터 호출 : " + 재고관리[1]);
 				
 				String product = 재고관리[ch-1]; System.out.println("콜라정보 : " + product);
 				// 2. 배열내 데이터[문자열] 분리
-				int stock = Integer.parseInt(product.split(",")[0]);
-				int basket = Integer.parseInt(product.split(",")[1]);
-				int price = Integer.parseInt(product.split(",")[2]);
+				int stock = Integer.parseInt(product.split(",")[1]);
+				int basket = Integer.parseInt(product.split(",")[2]);
+				int price = Integer.parseInt(product.split(",")[3]);
 				// 3. 유효성 검사를 통한 상태 변경
 				if(stock > 0) {
 					stock--;
@@ -60,13 +60,13 @@ public class 과제5_키오스크_배열 {
 				System.out.println("배열의 변수명 호출 : " + 재고관리); // @59a6e353
 				System.out.println("배열의 변수의 값 :" + Arrays.toString(재고관리));
 				System.out.println("배열내 데이터 개수 : " + 재고관리.length);
-				System.out.println("배열내 특정(인덱스)데이터 호출 : " + 재고관리[0]);
+				System.out.println("배열내 특정(인덱스)데이터 호출 : " + 재고관리[1]);
 				
 				String product = 재고관리[ch-1]; System.out.println("환타정보 : " + product);
 				// 2. 배열내 데이터[문자열] 분리
-				int stock = Integer.parseInt(product.split(",")[0]);
-				int basket = Integer.parseInt(product.split(",")[1]);
-				int price = Integer.parseInt(product.split(",")[2]);
+				int stock = Integer.parseInt(product.split(",")[1]);
+				int basket = Integer.parseInt(product.split(",")[2]);
+				int price = Integer.parseInt(product.split(",")[3]);
 				// 3. 유효성 검사를 통한 상태 변경
 				if(stock > 0) {
 					stock--;
@@ -86,9 +86,9 @@ public class 과제5_키오스크_배열 {
 				
 				String product = 재고관리[ch-1]; System.out.println("환타정보 : " + product);
 				// 2. 배열내 데이터[문자열] 분리
-				int stock = Integer.parseInt(product.split(",")[0]);
-				int basket = Integer.parseInt(product.split(",")[1]);
-				int price = Integer.parseInt(product.split(",")[2]);
+				int stock = Integer.parseInt(product.split(",")[1]);
+				int basket = Integer.parseInt(product.split(",")[2]);
+				int price = Integer.parseInt(product.split(",")[3]);
 				// 3. 유효성 검사를 통한 상태 변경
 				if(stock > 0) {
 					stock--;
@@ -99,13 +99,14 @@ public class 과제5_키오스크_배열 {
 			}
 			else if(ch==4) {
 				System.out.println(Arrays.toString(재고관리));
-				System.out.printf("%10s %10s \n", "수량", "가격");
+				System.out.printf("%10s %10s %10s \n","제품", "수량", "가격");
 				for(int i = 0 ; i < 재고관리.length; i++) {
-					
-					int basket = Integer.parseInt(재고관리[i].split(",")[1]);
+					System.out.println(재고관리[i].split(",")[2]);
+					String name = 재고관리[i].split(",")[0];
+					int basket = Integer.parseInt(재고관리[i].split(",")[2]);
 					int price = Integer.parseInt(재고관리[i].split(",")[2]);
 					if(basket > 0) { // 바구니에 수량이 있는 경우에만 출력
-						System.out.printf("%10s %10s \n", basket, basket*price);
+						System.out.printf("%10s %10s %10s \n",name, basket, basket*price);
 					}
 				}
 			}
