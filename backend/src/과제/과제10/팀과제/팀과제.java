@@ -1,8 +1,8 @@
-package 과제.과제10;
+package 과제.과제10.팀과제;
 
 import java.util.Scanner;
 
-public class 과제10 {
+public class 팀과제 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

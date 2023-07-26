@@ -25,4 +25,5 @@ public class Member {
 	*/
 	// 3. 메소드
 	
+	
 }

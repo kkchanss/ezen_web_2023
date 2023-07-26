@@ -1,4 +1,4 @@
-package 과제.과제10;
+package 과제.과제10.팀과제;
 
 public class Battery {
 	public int capacity = 100;
