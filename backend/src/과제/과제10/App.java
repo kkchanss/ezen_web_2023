@@ -27,7 +27,7 @@ public class App {
 	}
 	
 	public int namePrint() {
-		System.out.println(name + "선택 됨");
+		System.out.println(name + " 실행");
 		return batteryDesc;
 	}
 }
