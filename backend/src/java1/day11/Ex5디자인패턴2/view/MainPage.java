@@ -61,7 +61,20 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 			System.out.println("안내)회원가입실패");
 		}
 	}
-	void loginPage() {}
+	void loginPage() {
+		System.out.print("아이디 : ");
+		String id = sc.next();
+		System.out.print("비밀번호 : ");
+		String pw = sc.next();
+		
+		boolean result = MemberController.getInstanse().loginLogic(id, pw);
+		if(result) {
+			System.out.println("안내)로그인성공");
+		}
+		else {
+			System.out.println("안내)로그인실패");
+		}
+	}
 	void findIdPage() {}
 	void findPwPage() {}
 }

@@ -11,6 +11,7 @@ public class MemberDto { // 데이터 모델/형식 이동 객체
 	// 2. 생성자 	
 		// 1. 빈 생성자
 	public MemberDto() {}
+	public MemberDto(String id, String pw) {}
 		// 2. 풀 생성자
 	public MemberDto(String id, String pw, String name, String phone, int age) {
 		super();
