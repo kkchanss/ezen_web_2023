@@ -2,6 +2,8 @@ package java1.day11.Ex5디자인패턴2.view;
 
 import java.util.Scanner;
 
+import java1.day11.Ex5디자인패턴2.controller.MemberController;
+
 public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 	// 0. 싱글톤 생성
 		// 1. 현재 클래스에 static 객체 생성, 필드는 무조건 잠금
@@ -49,6 +51,9 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 		String phone = sc.next();
 		System.out.print("나이 : ");
 		int age = sc.nextInt();
+		// ---> 컨트롤러/서빙에게 전달
+		// 컨트롤 클래스내 메소드 호출
+		MemberController.getInstanse().signupLogic(id, pw, name, phone, age);
 	}
 	void loginPage() {}
 	void findIdPage() {}
