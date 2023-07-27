@@ -39,6 +39,7 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 		} // while e
 	}
 	
+	// 회원가입
 	void signupPage() {
 		System.out.println("----------회원가입----------");
 		System.out.print("아이디 : ");
@@ -61,6 +62,8 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 			System.out.println("안내)회원가입실패");
 		}
 	}
+	
+	// 로그인
 	void loginPage() {
 		System.out.print("아이디 : ");
 		String id = sc.next();
@@ -75,6 +78,36 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 			System.out.println("안내)로그인실패");
 		}
 	}
-	void findIdPage() {}
-	void findPwPage() {}
+	
+	// 아이디 찾기
+	void findIdPage() {
+		System.out.print("이름 : ");
+		String name = sc.next();
+		System.out.print("전화번호 : ");
+		String phone = sc.next();
+		
+		String result = MemberController.getInstanse().findIdLogic(name, phone);
+		if(result != null) {
+			System.out.println("안내)아이디는 " + result + "입니다.");
+		}
+		else {
+			System.out.println("안내)아이디찾기실패");
+		}
+	}
+	
+	// 비밀번호 찾기
+	void findPwPage() {
+		System.out.print("아이디 : ");
+		String id = sc.next();
+		System.out.print("전화번호 : ");
+		String phone = sc.next();
+		
+		String result = MemberController.getInstanse().findPwLogic(id, phone);
+		if(result != null) {
+			System.out.println("안내)비밀번호는 " + result + "입니다.");
+		}
+		else {
+			System.out.println("안내)비밀번호찾기실패");
+		}
+	}
 }

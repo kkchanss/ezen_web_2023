@@ -28,13 +28,34 @@ public class MemberController { // 기능처리(로직) 담당하는 클래스 /
 		for(int i = 0; i < MemberDao.memberList.length; i++) {
 			if(MemberDao.memberList[i]!=null) {
 				if(id.equals(MemberDao.memberList[i].getId())  && pw.equals(MemberDao.memberList[i].getPw()) ) {
-					//MemberDao.loginIndex = i;
+					//loginIndex = i;
 					return true;
 				}
 			}
 		}
 		return false;
 	}
-	void findIdLogic() {}
-	void findPwLogic() {}
+	
+	public String findIdLogic(String name, String phone) {
+		for(int i = 0; i < MemberDao.memberList.length; i++) {
+			if(MemberDao.memberList[i]!=null) {
+				if(name.equals(MemberDao.memberList[i].getName())  && phone.equals(MemberDao.memberList[i].getPhone()) ) {
+					//MemberDao.loginIndex = i;
+					return MemberDao.memberList[i].getId();
+				}
+			}
+		}
+		return null;
+	}
+	
+	public String findPwLogic(String id, String phone) {
+		for(int i = 0; i < MemberDao.memberList.length; i++) {
+			if(MemberDao.memberList[i]!=null) {
+				if(id.equals(MemberDao.memberList[i].getId())  && phone.equals(MemberDao.memberList[i].getPhone())) {
+					return MemberDao.memberList[i].getPw();
+				}
+			}
+		}
+		return null;
+	}
 }
