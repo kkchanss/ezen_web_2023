@@ -1,31 +1,38 @@
 package 과제.과제10.개인과제;
-
+								// 현재 클래스에서 같은 패키지에 있는 클래스 호출 = 생략
+								// java.lang 기본 패키지이므로 생략 ( String, System 등 )
+								// 현재 클래스에서 다른 패키지에 있는 클래스 호출 = import
 import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class MemberSys {
 	
-	static Member[] memberList = new Member[100];
-	static Scanner sc = new Scanner(System.in);
-	
+	static Member[] memberList = new Member[100];	// 정적멤버 = 메소드영역 = 프로그램 전체 1개
+	static Scanner sc = new Scanner(System.in);		// 정적멤버 = 메소드영역 = 
+	static int loginIndex = -1;						//
 	public static void main(String[] args) {
 		
 		while(true) {
 			
-			System.out.println("\n\n--------- 회원 시스템 ---------"); 
-			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기    선택> ");
+			System.out.println("\n\n--------- 회원 시스템 ---------"); // 1. 무한 출력
+			System.out.print("1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기    선택> ");  
+			// 입력 객체의 사용 구역 범위 생각! [ 프로그램 내 전체구역 = static ] 
 			int ch = sc.nextInt(); 
 			
-			if( ch == 1 ) { 회원가입 (); }
-			else if( ch == 2 ) { 로그인 (); } 
+			if( ch == 1 ) { 회원가입 (); } // main 함수 밖에 있는 다른 함수 호출
+			// 1. 인스턴스(static없는) 함수는 객체를 생성하고 호출한다.
+			// 2. 정적멤버(static있는) 함수는 객체없이 클래스를 통해 호출한다.
+			else if( ch == 2 ) { 로그인 (); }  
 			else if( ch == 3 ) { 아이디찾기 (); } 
 			else if( ch == 4 ) { 비밀번호찾기 (); } 
 			
-		} // w e 
-	}
+		} // while e 
+	} // main e
 	
-	static void 회원가입 () { 
+	// 1. 회원가입 함수 [ create ] 
+	static void 회원가입 () {
+		// 1. 입력받기 -> 각각 5개 입력받기
 		System.out.print("아이디 : ");
 		String id = sc.next();
 		System.out.print("비밀번호 : ");
@@ -54,6 +61,7 @@ public class MemberSys {
 		System.out.println("회원가입이 완료되었습니다.");
 	}
 	
+	// 2. 로그인 함수 : 입력받아 비교 [ reading ]
 	static void 로그인 () {
 		System.out.print("아이디 : ");
 		String id = sc.next();
@@ -64,12 +72,15 @@ public class MemberSys {
 			if(memberList[i]!=null) {
 				if(id.equals(memberList[i].getId())  && pw.equals(memberList[i].getPw()) ) {
 					System.out.println("로그인 성공");
+					loginIndex = i;
 					return;
 				}
 			}
 		}
 		System.out.println("로그인 실패");
 	}
+	
+	// 3. 아이디찾기 함수
 	static void 아이디찾기 () { 
 		System.out.print("이름 : ");
 		String name = sc.next();
@@ -86,6 +97,8 @@ public class MemberSys {
 		}
 		System.out.println("해당 정보의 아이디가 없음");
 	}
+	
+	// 4. 비밀번호찾기 함수
 	static void 비밀번호찾기 () {
 		System.out.print("아이디 : ");
 		String id = sc.next();
