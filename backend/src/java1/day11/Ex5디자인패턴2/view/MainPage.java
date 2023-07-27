@@ -53,7 +53,13 @@ public class MainPage { // 입출력 담당하는 클래스 // view -> HTML/JS
 		int age = sc.nextInt();
 		// ---> 컨트롤러/서빙에게 전달
 		// 컨트롤 클래스내 메소드 호출
-		MemberController.getInstanse().signupLogic(id, pw, name, phone, age);
+		boolean result = MemberController.getInstanse().signupLogic(id, pw, name, phone, age);
+		if(result) {
+			System.out.println("안내)회원가입성공");
+		}
+		else {
+			System.out.println("안내)회원가입실패");
+		}
 	}
 	void loginPage() {}
 	void findIdPage() {}
