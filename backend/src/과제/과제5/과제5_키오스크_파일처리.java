@@ -82,7 +82,6 @@ public class 과제5_키오스크_파일처리 {
 				// 3. 파일에 내보내기	// 1. 파일출력스트림 객체 2. 문자열 -> 바이트열변환 3. 바이트배열 내보내기
 				
 				fileOutputStream.write(outStr.getBytes()); // 2,3
-				
 				System.out.println("안내) 제품 등록이 완료되었습니다.");
 			}
 			
