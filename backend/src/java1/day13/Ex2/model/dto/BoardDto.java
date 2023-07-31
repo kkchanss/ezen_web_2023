@@ -25,6 +25,7 @@ public class BoardDto {
 		super();
 		this.content = content;
 		this.writer = writer;
+		view = 0;
 	}
 	
 	
