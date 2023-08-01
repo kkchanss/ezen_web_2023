@@ -81,7 +81,7 @@ public class Ex1_배열 {
 		// 3. String 클래스 배열
 			// 1. 선언
 			String[] arr3 = new String[3]; // String 객체(문자열)을 3개 저장할 수 있는 배열 선언 [ null, null, null ]
-			System.out.println(Arrays.toString(arr3));
+			System.out.println("arr3 : " + Arrays.toString(arr3));
 			// 2. 호출
 			for(int i = 0; i < arr3.length; i++) { System.out.println(arr3[i]);}
 			// 3. 값 변경
