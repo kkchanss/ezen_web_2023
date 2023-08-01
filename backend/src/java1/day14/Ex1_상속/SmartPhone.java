@@ -6,6 +6,8 @@ public class SmartPhone extends Phone {
 		// SmartPhone 클래스에서 Phone 클래스의 구성멤버 사용할 수 있다
 		// Phone 클래스에서 SmartPhone 클래스의 구성멤버 사용할 수 없다
 	
+		// 자바는 100% 객체지향 언어 = 상속 문법 사용
+		// 모든 클래스는 Object로부터 상속 받음 
 	// 1. 필드
 	public boolean wifi;
 	
