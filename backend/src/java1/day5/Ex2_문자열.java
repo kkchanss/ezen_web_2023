@@ -45,7 +45,7 @@ public class Ex2_문자열 {
 		// [ p.157 ] .charAt() 문자열 내에서 특정 문자 추출/꺼내기
 		String ssn = "9506241230123"; 	// 문자열 객체 선언 // 글자수13 인덱스 0~12   
 		char sex = ssn.charAt(6);		// 9[0]5[1]0[2]6[3]2[4]4[5]1[6] ~~~~ 3[12]
-		
+		System.out.println(sex);
 		if(sex == 1 || sex == 3) System.out.println("남자입니다.");
 		else System.out.println("여자입니다.");
 		

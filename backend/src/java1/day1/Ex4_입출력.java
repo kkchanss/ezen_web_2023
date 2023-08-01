@@ -20,7 +20,6 @@ public class Ex4_입출력 {
 			int value = 123;
 			System.out.printf("상품의 가격 : %d원 \n", value); // %d 위치에 value 변수 출력
 			System.out.printf("상품의 가격 : %6d원 \n", value); // %6d : 6칸 정수 자리에 value 변수 출력 [자릿수 포함]
-			System.out.printf("상품의 가격 : %6d원 \n", value); // %6d : 6칸 정수 자리에 value 변수 출력 [자릿수 포함]
 			System.out.printf("상품의 가격 : %06d원 \n", value); // %6d : 6칸 정수 자리에 value 변수 출력 [자릿수 포함]
 			
 			System.out.printf("반지름 파이 %f \n", 3.14);

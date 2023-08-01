@@ -1,6 +1,6 @@
 package java1.day2;
 
-public class Ex2_연산자 {
+public class Ex1_연산자 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
