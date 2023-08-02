@@ -8,7 +8,7 @@ public class Ex4_메소드 {
 		
 		// ------------ 메소드 사용/호출 ------------- //
 		// 1. 객체 필요
-		Member m = new Member();
+		Member m = new Member(); 
 		// 2. 객체내 .(도트연산자) 이용한 필드/메소드 호출
 			// 1. 리턴x매개변수x 함수 호출
 		m.signUp();
@@ -26,6 +26,15 @@ public class Ex4_메소드 {
 		m.delete("안녕", "하세요", "!");
 			// 6. 오버로딩
 		m.delete(1, "안녕", "하세요", "!");
+		System.out.println("안녕 하지 못합니다 저는 바보이거든요");
+		
+		int a = 1;
+		int b = 2;
+		if (a == b) {
+			System.out.println("김찬희 바보");
+		}else {
+			System.out.println("김찬희 왕바보");
+		}
 	}
 
 }
