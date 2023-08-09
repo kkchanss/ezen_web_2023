@@ -2,6 +2,7 @@ package 과제.과제11.model.dao;
 
 import java.sql.SQLException;
 
+import 과제.과제11.controller.MemberController;
 import 과제.과제11.model.dto.MemberDto;
 
 public class MemberDao extends Dao {
@@ -117,5 +118,61 @@ public class MemberDao extends Dao {
 		
 		
 		return null;
+	}
+	
+	// 6. 회원번호를 가지고 회원정보 찾기 .. 회원번호가 존재하는 레코드 찾기
+	public MemberDto infoSQL(int mno) {
+		MemberController.getInstance().getLoginSession();
+		
+		try {
+			String sql = "select * from member where mno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1,mno);
+			rs = ps.executeQuery();
+			MemberDto dto = null;
+			if(rs.next()) {
+				// 현재 레코드를 DTO로 만들기
+				dto = new MemberDto(
+					rs.getInt(1), rs.getString(2),
+					rs.getString(3), rs.getString(4),
+					rs.getString(5)
+				);
+			}
+			return dto;
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return null;
+	}
+	
+	// 7. 회원정보 수정
+	public boolean infoUpdateSQL(String newPw, int mno) {
+		try {
+			String sql = "update member set mpw = ? where mno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, newPw);
+			ps.setInt(2, mno);
+			int row = ps.executeUpdate();
+			if(row == 1) return true;
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		return false;
+	}
+	
+	// 8. 회원탈퇴 
+	public boolean infoDeleteSQL(int mno) {
+		try {
+			String sql = "delete from member where mno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, mno);
+			int row = ps.executeUpdate();
+			if(row == 1) return true;
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+		return false;
 	}
 }
