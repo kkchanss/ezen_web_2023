@@ -26,3 +26,12 @@ create table board(
     primary key(bno),				# 제약조건 [ PK ]
 	foreign key(mno) references member(mno) on delete cascade 	# 회원탈퇴[PK레코드 삭제] 되면 FK의 레코드 값이 같이 삭제
 );
+
+create table message(
+	msno int auto_increment primary key, 			# 메세지 번호
+    sender int, 									# 보낸 사람 (member테이블의 mno fk)
+    taker int,										# 받은 사람 (member테이블의 mno fk)
+    mscontent varchar(300),
+    foreign key(sender) references member(mno),
+    foreign key(taker) references member(mno)
+);

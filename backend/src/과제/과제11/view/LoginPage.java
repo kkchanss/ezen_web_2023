@@ -5,9 +5,11 @@ import java.util.Scanner;
 
 import 과제.과제11.controller.BoardController;
 import 과제.과제11.controller.MemberController;
+import 과제.과제11.controller.MessageController;
 import 과제.과제11.model.dao.BoardDao;
 import 과제.과제11.model.dto.BoardDto;
 import 과제.과제11.model.dto.MemberDto;
+import 과제.과제11.model.dto.MessageDto;
 
 public class LoginPage {
 	// 0. 싱글톤 
@@ -48,11 +50,12 @@ public class LoginPage {
 		System.out.println(">PHONE : " + result.getMphone());
 		
 		// 2. 서브메뉴
-		System.out.print("1. 비밀번호 수정 2. 회원탈퇴 3. 뒤로가기 선택> ");
+		System.out.print("1. 비밀번호 수정 2. 회원탈퇴 3. 뒤로가기 4. 쪽지 확인 선택> ");
 		int ch = sc.nextInt();
 		if(ch == 1) { infoUpdateView(); }
 		if(ch == 2) { infoDeleteView(); }
 		if(ch == 3) { return; } // 생략 가능
+		if(ch == 4) { messageCheckView();} 
 	}
 	
 	// 7. infoUpdate : 회원정보수정 페이지
@@ -129,14 +132,15 @@ public class LoginPage {
 		System.out.printf("title : %s \n", result.getBtitle());
 		System.out.printf("content : %s \n", result.getBcontent());
 		// 4. 추가메뉴
-		System.out.println("1.뒤로가기 2.수정 3.삭제 선택> "); int ch = sc.nextInt();
+		System.out.println("1.뒤로가기 2.수정 3.삭제 4.쪽지보내기 선택> "); int ch = sc.nextInt();
 		if(ch == 1) {}
-		if(ch == 2) { boardUpdate(bno, result.getMno());}
-		if(ch == 3) { boardDelete(bno, result.getMno());}
+		if(ch == 2) { boardUpdateView(bno, result.getMno());}
+		if(ch == 3) { boardDeleteView(bno, result.getMno());}
+		if(ch == 4) { messageSendView(result.getMno());}
 	}
 	
 	// 12. boardUpdate : 게시물 수정 페이지
-	public void boardUpdate(int bno, int mno) {
+	public void boardUpdateView(int bno, int mno) {
 		
 		System.out.println(" ----- post UPDATE ----- ");
 		sc.nextLine();
@@ -151,7 +155,7 @@ public class LoginPage {
 	} 
 	
 	// 13 boardDelete : 게시물 삭제 페이지
-	public void boardDelete(int bno, int mno) {
+	public void boardDeleteView(int bno, int mno) {
 //		if(mno != MemberController.getInstance().getLoginSession()) {
 //			System.out.println("해당 게시물의 작성자가 아닙니다.");
 //			return;
@@ -160,5 +164,41 @@ public class LoginPage {
 		boolean result = BoardController.getInstance().boardDeleteLogic(bno, mno);
 		if(result) System.out.println("삭제 완료");
 		else System.out.println("삭제 실패");
+	}
+	
+	// 14. 쪽지보내기 페이지
+	public void messageSendView(int mno) {
+		sc.nextLine();
+		System.out.print("보낼 내용 : "); String content = sc.nextLine();
+		boolean result = MessageController.getInstance().messageSendLogic(mno, content);
+		if(result) System.out.println("쪽지 보내기 성공");
+		else System.out.println("쪽지 보내기 실패");
+	}
+	
+	
+	// 15. 쪽지확인 페이지 // + 쪽지 답장 보내기 
+	public void messageCheckView() {
+		System.out.println("---------쪽지 함-----------");
+		ArrayList<MessageDto> result = MessageController.getInstance().messageCheckLogic();
+		
+		for(int i = 0; i < result.size(); i++) {
+			MessageDto dto = result.get(i);
+			System.out.printf("번호 : %-10d \t 내용 : %-20s \t 발신자 : %-10s \t 보낸 일시 : %-20s \n",
+					dto.getMsno(), dto.getMscontent(), dto.getSenderid(), dto.getMsdatetime() );
+		}
+		
+		System.out.print("1.답장하기 2.뒤로가기"); int ch = sc.nextInt();
+		if(ch == 1) messageReplyView();
+		if(ch == 2) return;
+	}
+	
+	// 16. 쪽지 답장 보내기 페이지
+	public void messageReplyView() {
+		System.out.print("답장 보낼 쪽지를 선택해주세요. 선택> "); int ch = sc.nextInt();
+		sc.nextLine();
+		System.out.println("내용 입력 : "); String mscontent = sc.nextLine();
+		boolean result = MessageController.getInstance().messageReplyLogic(ch, mscontent);
+		if(result) System.out.println("답장 성공");
+		else System.out.println("답장 실패");
 	}
 }
