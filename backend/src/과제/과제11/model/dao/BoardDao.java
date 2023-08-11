@@ -103,7 +103,7 @@ public class BoardDao extends Dao {
 		}
 	}
 	// 12. boardUpdate : 게시물 수정
-	public boolean boardUpdateSQL(int bno, String title, String content) {
+	public int boardUpdateSQL(int bno, String title, String content) {
 		String sql = "update board set bcontent = ?, btitle = ?  where bno = ?";
 		try {
 			ps = conn.prepareStatement(sql);
@@ -111,13 +111,13 @@ public class BoardDao extends Dao {
 			ps.setString(2, title);
 			ps.setInt(3, bno);
 			int row = ps.executeUpdate();
-			if(row == 1) return true;
+			if(row == 1) return 1;
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return false;
+		return 2;
 	}
 	
 	

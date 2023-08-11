@@ -33,11 +33,22 @@ public class BoardController {
 		return BoardDao.getInstance().boardViewSQL(bno);
 	}
 	// 12. boardUpdate : 게시물 수정
-	public boolean boardUpdateLogic(int bno, String title, String content) {
+	public int boardUpdateLogic(int bno, int mno, String title, String content) {
+		
+		// 게시물 작성자와 현재 로그인 된 아이디가 같지 않다면
+		if(mno != MemberController.getInstance().getLoginSession()) return 3;
+		
+		// 제목이 길다면
+		if(title.length() < 1 || title.length() > 50) return 4;
+		
 		return BoardDao.getInstance().boardUpdateSQL(bno, title, content);
 	}
 	// 13. boardDelete : 게시물 삭제
-	public boolean boardDeleteLogic(int bno) {
+	public boolean boardDeleteLogic(int bno, int mno) {
+		
+		// 게시물 작성자와 현재 로그인 된 아이디가 같지 않다면
+		if(mno != MemberController.getInstance().getLoginSession()) return false;
+		
 		return BoardDao.getInstance().boardDeleteSQL(bno);
 	}
 }

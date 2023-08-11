@@ -138,29 +138,26 @@ public class LoginPage {
 	// 12. boardUpdate : 게시물 수정 페이지
 	public void boardUpdate(int bno, int mno) {
 		
-		if(mno != MemberController.getInstance().getLoginSession()) {
-			System.out.println("해당 게시물의 작성자가 아닙니다.");
-			return;
-		}
-		
 		System.out.println(" ----- post UPDATE ----- ");
 		sc.nextLine();
 		
 		System.out.print("수정할 제목 : "); String title = sc.nextLine();
 		System.out.print("수정할 내용 : "); String content = sc.nextLine();
-		boolean result = BoardController.getInstance().boardUpdateLogic(bno, title, content);
-		if(result) System.out.println("수정 완료");
-		else System.out.println("수정 실패");
+		int result = BoardController.getInstance().boardUpdateLogic(bno, mno, title, content);
+		if(result == 4) System.out.println("제목이 너무 깁니다");
+		else if(result == 3) System.out.println("해당 게시물의 작성자가 아닙니다.");
+		else if(result == 1) System.out.println("수정 완료");
+		else if(result == 2) System.out.println("수정 실패");
 	} 
 	
 	// 13 boardDelete : 게시물 삭제 페이지
 	public void boardDelete(int bno, int mno) {
-		if(mno != MemberController.getInstance().getLoginSession()) {
-			System.out.println("해당 게시물의 작성자가 아닙니다.");
-			return;
-		}
+//		if(mno != MemberController.getInstance().getLoginSession()) {
+//			System.out.println("해당 게시물의 작성자가 아닙니다.");
+//			return;
+//		}
 		System.out.println(" ----- post DELTE ----- ");
-		boolean result = BoardController.getInstance().boardDeleteLogic(bno);
+		boolean result = BoardController.getInstance().boardDeleteLogic(bno, mno);
 		if(result) System.out.println("삭제 완료");
 		else System.out.println("삭제 실패");
 	}
