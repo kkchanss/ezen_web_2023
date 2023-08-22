@@ -2,6 +2,8 @@ package model.dao;
 
 import java.util.ArrayList;
 
+import model.dto.VisitDto;
+
 public class VisitDao extends Dao{
 
 	private static VisitDao visitDao = new VisitDao();
@@ -9,12 +11,45 @@ public class VisitDao extends Dao{
 	private VisitDao() {}
 	
 	// 1. 저장 [ 인수 : 저장할 내용이 담긴 DTO, 리턴 : 성공/실패(boolean)=true/false ] 
-	public boolean vwrite() { 
+	public boolean vwrite(VisitDto visitDto) { 
+		System.out.println("dao 도착");
+		String sql = "insert into visitlog(vwriter, vpwd, vtext) values(?,?,?)";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, visitDto.getVwriter());
+			ps.setString(2, visitDto.getVpwd());
+			ps.setString(3, visitDto.getVcontent());
+			int row = ps.executeUpdate();
+			
+			if(row == 1) return true;
+		}catch(Exception e) {
+			System.out.println("vwrite 오류 발생 : " + e);
+		}
 		
 		return false; 
 	}
 	// 2. 호출 [ 인수 : x, 리턴 : 여러개(ArrayList)의 방문록 DTO ]
-	public ArrayList<VisitDao> vread() {
+	public ArrayList<VisitDto> vread() {
+		
+		String sql = "select * from visitlog order by vdate desc";
+		ArrayList<VisitDto> list = new ArrayList<>();
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			
+			while(rs.next()) {
+				
+				VisitDto visitDto = new VisitDto(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+				
+				list.add(visitDto);
+			}
+			
+			return list;
+		}catch(Exception e) {
+			System.out.println("vwrite 오류 발생 : " + e);
+		}
 		
 		return null;
 	}

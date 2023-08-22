@@ -1,1 +1,11 @@
 @charset "UTF-8";
+
+*{
+	padding:0px; 
+	margin:0px;
+}
+
+.visitwrap{
+	width:800px; /* 구역 가로 사이즈 */
+	margin: 0 auto; /* 가운데 정렬 */
+}
