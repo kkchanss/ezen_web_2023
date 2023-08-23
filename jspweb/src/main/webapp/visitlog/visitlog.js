@@ -26,15 +26,31 @@ function vwrite() {
       // 5. 결과에 따른 코드 
    
 } // f e
-
+vread();
 // 1. Read ( 호출 )
 function vread() {
    $.ajax({
-      	url : "../VisitController" ,
+      	url : "../VisitLogController" ,
       	method : 'get' ,
       	success: function(result){ 
-			
-			
+			let visit_Bootom = document.querySelector('.visit_Bottom')
+	        for(i=0;i<result.length;i++)
+	        {
+				console.log('test')
+	          visit_Bootom.innerHTML += `
+	           <div class="visitbox">
+	               <div class="visitbox_top">
+	                  <div> ${result[i].vwriter} </div>
+	                  <div class="visitdate"> ${result[i].vday} </div>
+	               </div>
+	               <div class="visitbox_center"> ${result[i].vcontent} </div>
+	               <div class="visitbox_bottom">
+	                  <button type="button">수정</button>
+	                  <button type="button">삭제</button>
+	               </div>
+	            </div>
+	          `
+	        }
 			console.log(result ); 
 	  	},
       
