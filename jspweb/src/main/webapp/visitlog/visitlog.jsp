@@ -24,14 +24,26 @@
 		</div>
    
       <div class="visit_Bottom"> <!-- 출력 구역  -->
+<!--       			           <div class="visitbox">
+	               <div class="visitbox_top">
+	                  <div> ${result[i].vwriter} </div>
+	                  <div class="visitdate"> ${result[i].vday} </div>
+	               </div>
+	               <div class="visitbox_center"> ${result[i].vcontent} </div>
+	               <div class="visitbox_bottom">
+	                  <button type="button">수정</button>
+	                  <button type="button">삭제</button>
+	               </div>
+	            </div> 
+	    --!>
       		
-      		
-      		
+     		
       </div>
    
    </div>
    
    <!-- js import -->
+   
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
    <script src="visitlog.js" type="text/javascript"></script>
    

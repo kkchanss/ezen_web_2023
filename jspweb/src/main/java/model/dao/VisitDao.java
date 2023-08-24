@@ -54,14 +54,40 @@ public class VisitDao extends Dao{
 		return null;
 	}
 	// 3. 수정 [ 인수 : 수정할 방문록 번호, 수정할 내용, 리턴 : 성공/실패(boolean)=true/false ]
-	public boolean vupdate(int vno, String vcontent) {
+	public boolean vupdate(int vno, String vcontent, String vpwd) {
+		
+		String sql = "update visitlog set vtext = ? where vno = ? and vpwd = ? ";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, vcontent);
+			ps.setInt(2, vno);
+			ps.setString(3, vpwd);
+			int row = ps.executeUpdate();
+			if(row == 1) return true;
+		}catch(Exception e) {
+			System.out.println("vupdate오류 : " + e);
+		}
 		
 		return false;
 	}
 	// 4. 삭제 [ 인수 : 삭제할 방문록 번호, 리턴 : 성공/실패(boolean)=true/false ]
-	public boolean vdelete(int vno) {
-		
-		return false;
-	}
+   public boolean vdelete(int vno,String vpwd) {
+	      try {
+	         String sql  = "delete from visitlog where vno = ? and vpwd = ?";
+	         ps = conn.prepareStatement(sql);
+	         ps.setInt(1, vno);
+	         ps.setString(2, vpwd);
+	         int res = ps.executeUpdate();
+	         
+	         if(res == 1)
+	         {
+	            return true;
+	         }
+	      } catch (Exception e) {
+	         System.out.println("vdelete오류"+e);
+	      }
+	      return false;
+	  }
 }
 

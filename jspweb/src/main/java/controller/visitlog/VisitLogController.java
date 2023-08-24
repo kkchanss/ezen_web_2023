@@ -47,19 +47,29 @@ public class VisitLogController extends HttpServlet {
       String vweiter = request.getParameter("vwriter");
       String v1 = request.getParameter("vpwd");
       String v2= request.getParameter("vcontent");
-      System.out.println("test");
       response.setContentType("text/html;charset=UTF-8");
       response.getWriter().print( (VisitDao.getInstance().vwrite(new VisitDto(vweiter,v1,v2)) ?"성공":"실패" ));
       
-
+      
    }
 
    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // TODO Auto-generated method stub
+	   int vno = Integer.parseInt(request.getParameter("vno")); 
+	   String vcontent = request.getParameter("vcontent");
+	   String vpwd = request.getParameter("vpwd");
+	   
+	   boolean result = VisitDao.getInstance().vupdate(vno, vcontent, vpwd);
+	   response.setContentType("text/html;charset=UTF-8");
+	   response.getWriter().print(result);
+	   
    }
 
    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // TODO Auto-generated method stub
+	      response.setContentType("text/html;charset=UTF-8");
+	      boolean result  = VisitDao.getInstance().vdelete(Integer.parseInt(request.getParameter("vno")), request.getParameter("vpwd"));
+	     
+   		  response.getWriter().print(result);
    }
 
+   
 }

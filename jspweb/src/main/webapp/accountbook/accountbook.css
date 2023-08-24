@@ -1,0 +1,73 @@
+@charset "UTF-8";
+*{
+	padding:0px; margin:0px;
+}
+
+.wrap{
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+	display: flex;
+}
+/* 입력 */
+.inputDiv{
+	width: 50%;
+}
+
+.inputDiv .acontent{
+	width:200px;
+	margin-bottom:20px;
+	height:30px;
+}
+
+.inputDiv .amoney{
+	width:200px;
+	margin-bottom:20px;
+	height:30px;	
+}
+
+.inputDiv .aday{
+	width:200px;
+	margin-bottom:20px;
+	height:30px;
+}
+
+
+.inputDiv button{
+	color : white;
+	background-color: black;
+	width: 200px;
+	height:30px;
+	font-weight: bold;
+}
+/* 출력 */
+.outputDiv{
+	width: 50%;
+}
+
+.outputDiv .accountbox{
+	width:400px;
+	margin-bottom:30px;
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.outputDiv .accountmoney{
+	margin-bottom:10px;
+}
+
+.outputDiv .accountdate{
+	margin-bottom:10px;
+}
+
+.outputDiv .accountbox_center{
+	margin-bottom:10px;
+}
+
+.accountbox_bottom button{
+	color:white;
+	font-weight: bold;
+	background-color:black;
+	width:50px;
+	padding: 5px;
+}
