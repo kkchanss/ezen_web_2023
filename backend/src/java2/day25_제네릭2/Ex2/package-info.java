@@ -1,0 +1,1 @@
+package java2.day25_제네릭2.Ex2;
