@@ -18,10 +18,22 @@
 		<span class="idcheckbox"></span>
 		<br/>
 		
-		비밀번호 : <input class="mpwd" type="password" /> <br/>
-		비밀번호 확인 : <input class="mpwdconfirm" type="password" /> <br/>
-		이메일 : <input class="memail" type="text" /> <br/>
-		이메일 인증코드 : <input class="ecode" type="text" /> <br/>
+		비밀번호 : <input onkeyup="pwcheck()" class="mpwd" type="password" /> 
+		<span class="pwcheckbox"></span>
+		<br/>
+		비밀번호 확인 : <input onkeyup="pwcheck()" class="mpwdconfirm" type="password" /> <br/>
+		이메일 : <input onkeyup='emailcheck()' class="memail" type="text" />
+		<button onclick="authReq()" class="authReqBtn" disabled type="button">인증 요청</button> <br/>
+		<div class="authbox"><!-- 
+			<span class="timebox"> 02:00 </span>
+			<input class="ecode" type="text"/>	
+			<button class="" type="button">인증</button>  <br/> -->
+		</div>
+		
+		
+		
+	
+		<span class="emailcheckbox"></span><br/>
 		프로필 : 	<input class="mimg" type="file" /> <br/>
 		<button onclick="signup()" type="button">회원가입</button>
 	</div>

@@ -38,19 +38,19 @@ public class MemberDao extends Dao{
 	
 	// 5. 내정보 호출
 	
-	// 6. 아이디 중복 검사 
-	public boolean findId(String mid ) {
-		String sql = "select * from member where mid = ?";
+	// 6. 아이디/이메일 중복 검사 
+	public boolean findIdOrEmail(String type, String data ) {
+		String sql = "select * from member where " + type + " = ?";
 		
 		try {
 			
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, mid);
+			ps.setString(1, data);
 			rs = ps.executeQuery();
 			if(rs.next()) return true;
 			
 		}catch(Exception e) {
-			System.out.println("findId 에러" + e);
+			System.out.println("findIdOrEmail 에러" + e);
 		}
 		
 		return false;

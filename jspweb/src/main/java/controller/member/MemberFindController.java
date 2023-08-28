@@ -25,9 +25,11 @@ public class MemberFindController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String mid =  request.getParameter("mid");
-		System.out.println(mid);
-		boolean result = MemberDao.getInstance().findId(mid);
+		String data =  request.getParameter("data");
+		String type = request.getParameter("type");
+		
+		System.out.println(data);
+		boolean result = MemberDao.getInstance().findIdOrEmail(type,data);
 		
 		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print(result);
