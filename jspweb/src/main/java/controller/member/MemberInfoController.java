@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import model.dao.MemberDao;
 import model.dto.MemberDto;
 
@@ -26,11 +29,25 @@ public class MemberInfoController extends HttpServlet {
     }
     // 1. [C] 회원가입
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 첨부파일 전송 했을때
+		String uploadpath = "C:\\Users\\504\\git\\ezen_web_2023\\jspweb\\src\\main\\webapp\\member\\img";
+			// 1. 첨부파일 업로드
+		MultipartRequest m = new MultipartRequest(
+				request, // 요청방식
+				uploadpath,  // 첨부파일을 저장할 폴더 경로 
+				1024*1024*10, // 첨부파일 용량 허용 범위
+				"UTF-8", // 한글인코딩타입
+				new DefaultFileRenamePolicy() // 만약 서버내 첨부파일의 동일한 이름이 있을때 이름뒤에 숫자를 자동으로 붙이기
+				);
+				
+			// 2. form 안에 있는 각 데이터 호출
+		
 		// 1. AJAX 통신받은 data객체의 '속성명' 요청한다. [ request ] 
-		String mid =  request.getParameter("mid");			System.out.println("mid : "  + mid);
-		String mpwd =  request.getParameter("mpwd");		System.out.println("mpwd : "  + mpwd);
-		String memail =  request.getParameter("memail");	System.out.println("memail : "  + memail);
-		String mimg =  request.getParameter("mimg");		System.out.println("mimg : "  + mimg);
+		String mid =  m.getParameter("mid");			System.out.println("mid : "  + mid);
+		String mpwd =  m.getParameter("mpwd");		System.out.println("mpwd : "  + mpwd);
+		String memail =  m.getParameter("memail");	System.out.println("memail : "  + memail);
+		String mimg =  m.getFilesystemName("mimg");		System.out.println("mimg : "  + mimg);
 		
 		// 2. (선택) 객체화.
 		MemberDto dto = new MemberDto(mid, mpwd, memail, mimg);

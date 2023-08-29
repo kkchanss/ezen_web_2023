@@ -13,16 +13,16 @@
 
 	<%@include file="../header.jsp" %>
 
-	<div> <!-- 회원가입 전체 구역  -->
-		아이디 : <input onkeyup="idcheck()" class="mid" type="text" /> 
+	<form class="signupForm"> <!-- 회원가입 전체 구역  -->
+		아이디 : <input onkeyup="idcheck()" name="mid" class="mid" type="text" /> 
 		<span class="idcheckbox"></span>
 		<br/>
 		
-		비밀번호 : <input onkeyup="pwcheck()" class="mpwd" type="password" /> 
+		비밀번호 : <input onkeyup="pwcheck()" name="mpwd" class="mpwd" type="password" /> 
 		<span class="pwcheckbox"></span>
 		<br/>
 		비밀번호 확인 : <input onkeyup="pwcheck()" class="mpwdconfirm" type="password" /> <br/>
-		이메일 : <input onkeyup='emailcheck()' class="memail" type="text" />
+		이메일 : <input onkeyup='emailcheck()' name="memail" class="memail" type="text" />
 		<button onclick="authReq()" class="authReqBtn" disabled type="button">인증 요청</button> <br/>
 		<div class="authbox"><!-- 
 			<span class="timebox"> 02:00 </span>
@@ -34,9 +34,11 @@
 		
 	
 		<span class="emailcheckbox"></span><br/>
-		프로필 : 	<input class="mimg" type="file" /> <br/>
-		<button onclick="signup()" type="button">회원가입</button>
-	</div>
+		프로필 : 	<input onchange="preimg(this)" name="mimg" class="mimg" type="file" /> <br/>
+		<img class="preimg" alt="" src=""> <!-- 등록 사진을 미리보기 할 사진 태그 -->
+		<!-- <button onclick="signup()" type="button">회원가입</button> -->
+		<button onclick="signup()" type="button">인증 요청</button>
+	</form>
 	
 	
 	
