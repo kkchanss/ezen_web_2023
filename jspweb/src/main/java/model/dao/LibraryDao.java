@@ -9,9 +9,7 @@ public class LibraryDao extends Dao {
 
 	// 싱글톤
 	private static LibraryDao libraryDao = new LibraryDao();
-	public static LibraryDao getInstance() {
-		return libraryDao;
-	}
+	public static LibraryDao getInstance() {return libraryDao;}
 	private LibraryDao() {};
 	
 	// 좌석조회

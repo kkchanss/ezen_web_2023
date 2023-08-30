@@ -9,6 +9,9 @@
    <link href="accountbook.css" rel="stylesheet" />
 </head>
 <body>
+	
+	<%@include file="../header.jsp" %>
+
 	<div class="wrap"> <!-- 전체 구역 -->
 		<div class="inputDiv"> <!-- 입력 구역 -->
 			<input class="acontent"    type="text" placeholder="내용">
@@ -36,6 +39,8 @@
 	         </div>
 		</div>
 	</div>
+	
+	<%@include file="../footer.jsp" %>
 	
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
    	<script src="accountbook.js" type="text/javascript"></script>

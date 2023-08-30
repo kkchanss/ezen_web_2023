@@ -8,6 +8,9 @@
 <link href="library.css" rel="stylesheet">
 </head>
 <body>
+	
+	<%@include file="../header.jsp" %>
+
    <div class="library_wrap">
       <div class="library_top">
          <div class="seats_table">
@@ -26,6 +29,8 @@
            <button onclick="checkOut()" type="button">퇴실</button>
       </div>
    </div>
+   
+   <%@include file="../footer.jsp" %>
    
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
    <script src="library.js" type="text/javascript"></script>

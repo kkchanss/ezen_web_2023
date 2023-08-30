@@ -11,6 +11,9 @@
    
 </head>
 <body>
+	
+	<%@include file="../header.jsp" %>
+
    <!-- CRUD 기반의 비회원 게시판/방문록 구현 -->
   	<div class="visitwrap"> <!-- 전체구역 -->
    
@@ -35,15 +38,12 @@
 	                  <button type="button">삭제</button>
 	               </div>
 	            </div> 
-	    --!>
-      		
-     		
+	            !-->
       </div>
    
    </div>
-   
-   <!-- js import -->
-   
+
+   <%@include file="../footer.jsp" %>
    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
    <script src="visitlog.js" type="text/javascript"></script>
    
