@@ -133,11 +133,46 @@ public class MemberInfoController extends HttpServlet {
 	}
 	// 3. 회원수정 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		MultipartRequest m = new MultipartRequest(
+				request, 
+				request.getServletContext().getRealPath("/member/img"),
+				1024*1024*10,
+				"UTF-8",
+				new DefaultFileRenamePolicy()
+		);
+		
+		String mimg = m.getFilesystemName("mimg");
+		
+		Object object = request.getSession().getAttribute("loginDto");
+		MemberDto dto = (MemberDto)object;
+		int loginMno = dto.getMno();
+		String mid = dto.getMid();
+		boolean result = MemberDao.getInstance().mupdate(loginMno, mimg);
+		
+		if(result == true) {
+			// 1. 세션에 저장할 데이터를 요청.
+			MemberDto loginDto = MemberDao.getInstance().info(mid);
+			// 2. 세션에 [로그인 성공한 회원의 정보(loginDto) ]저장한다.
+			request.getSession().setAttribute( "loginDto", loginDto );
+		}
+		
+		response.setContentType("application/json; charset=utf-8");
+		response.getWriter().print(  result );
 		
 	}
 	// 4. 회원삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String mpwd = request.getParameter("mpwd");
+		
+		Object session = request.getSession().getAttribute("loginDto");
+		//2. 타입변환한다. [ 부 -> 자  (캐스팅/강제타입변환) ]
+		MemberDto loginDto = (MemberDto)session;
+		
+		boolean result = MemberDao.getInstance().mdelete(mpwd, loginDto.getMid());
+		
+		response.setContentType("application/json; charset=utf-8");
+		response.getWriter().print(result);
 	}
 
 }
