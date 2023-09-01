@@ -1,15 +1,21 @@
 package model.dao;
 
+import model.dto.BoardDto;
+
 public class BoardDao extends Dao{
 	private static BoardDao boardDao = new BoardDao();
 	private BoardDao() {}
 	public static BoardDao getInstance() { return boardDao; }
 	
 	// 1. 글쓰기 
-	public boolean write() {
+	public boolean bwrite(BoardDto boardDto) {
 		
-		String sql = "insert into board(bcno,mno,btitle,bcontent,bimg) values(?,?,?,?,?)";
-		
+		String sql = "insert into board(btitle,bcontent,bfile, mno, bcno) values(?,?,?,?,?)";
+		try {
+			
+		}catch(Exception e) {
+			System.out.println("bwrite 오류 : " + e);
+		}
 		return false;
 	}
 	
