@@ -296,7 +296,15 @@ function signup(){
 					data : signupData ,			// FormData 객체를 전송 
 					contentType : false ,		// form 객체 [ 대용량 ]  전송타입 		
 					processData : false ,
-					success : r => { console.log(r) } ,
+					success : r => { 
+						if(r){
+							alert('회원가입 성공')
+							location.href="/jspweb/member/login.jsp";
+						} else {
+							alert('회원가입 실패')
+						}
+						
+					} ,
 					error : e => { console.log(e) } ,
 				})
 	}else{
