@@ -16,6 +16,7 @@
 		</table>
 		<button onclick="onWrite()" type="button">글쓰기</button>
 	</div>
+	
 	<script src="../js/board/list.js" type="text/javascript"></script>
 	
 </body>

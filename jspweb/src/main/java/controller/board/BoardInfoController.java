@@ -31,20 +31,41 @@ public class BoardInfoController extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    // 1. 전체조회 , 2.개별조회 
+    // type : 1. 전체조회 , 2.개별조회 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 요청 
+		String type = request.getParameter("type");
 		
-		// 2. 유효성검사/객체화
-		
-		// 3. DAO 
-		ArrayList<BoardDto> result = BoardDao.getInstance().getList();
-			System.out.println( result );
 		ObjectMapper objectMapper = new ObjectMapper();
-		String jsonArray = objectMapper.writeValueAsString(result);
-		// 4. 응답 
+		String json = "";
+
+		if( type.equals("1") ) { // 전체 조회 로직 
+			
+			ArrayList<BoardDto> result = BoardDao.getInstance().getList();
+			json = objectMapper.writeValueAsString( result );
+
+		}else if( type.equals("2") ) {// 개별 조회 로직 
+			//1.매개변수 요청 
+			int bno = Integer.parseInt( request.getParameter("bno") ) ;
+			//2. DAO 처리 
+			BoardDto result = BoardDao.getInstance().getBoard( bno );
+			
+				// 3. 만약에 ( 로그인 혹은 비로그인 )요청한한사람과 게시물작성한사람과 동일하면 
+			Object object = request.getSession().getAttribute("loginDto");
+			if( object == null ) { // 비로그인 
+				result.setIshost(false); // 남이 쓴 글 
+			}else { // 로그인 
+				MemberDto login = (MemberDto)object;
+				if( login.getMno() == result.getMno() ) { result.setIshost(true); } 	// 내가 쓴 글 
+				else { result.setIshost(false);  } 	// 남이 쓴 글 
+			}
+			json = objectMapper.writeValueAsString( result );
+		}
+		
+		// 공통 로직 // 1. 전체조회 , 개별조회 하던 응답 로직 공통
 		response.setContentType("application/json;charset=UTF-8");
-		response.getWriter().print(jsonArray);
+		response.getWriter().print( json );
+		
 	}
 	// 2. 쓰기 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -76,26 +97,18 @@ public class BoardInfoController extends HttpServlet {
 	}
 	// 3. 수정 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 	}
+	
 	// 4. 삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// 1. 요청 
+		int bno = Integer.parseInt( request.getParameter("bno") );
+		// 2. DAO
+		boolean result = BoardDao.getInstance().ondelete(bno);
+		// 3. 응답 
+		response.setContentType("application/json; charset=UTF-8"); 
+		response.getWriter().print(result);
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
