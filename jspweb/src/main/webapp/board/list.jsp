@@ -5,15 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+	<link href="/jspweb/css/list.css" rel="stylesheet"/>
+
 </head>
 <body>
 
 	<%@include file = "../header.jsp" %>
+	
 	<div class="webcontainer">
 		<h3> 글 목록 페이지 </h3>
-		<table class="boardTable">
-
-		</table>
+		<table class="boardTable"> </table>
 		<button onclick="onWrite()" type="button">글쓰기</button>
 	</div>
 	
