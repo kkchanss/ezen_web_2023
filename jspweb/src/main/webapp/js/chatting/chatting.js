@@ -6,11 +6,75 @@ if( loginState == false ){ alert('회원전용 페이지입니다.'); location.h
 
 // 2. JS 클라이언트[유저] 소켓 만들기 
 console.log( '채팅방에 입장한 아이디 : ' + loginMid );
-let clientSocket = new WebSocket(`ws://localhost:80/jspweb/serversokcet/${loginMid}`);
+let clientSocket = new WebSocket(`ws://192.168.17.147/jspweb/serversokcet/${loginMid}`);
 	// - 클라이언트소켓이 생성되었을때 자동으로 서버소켓에 접속 ----> 서버소켓의 @OnOpen 으로 이동
 	// - 서버소켓URL에 매개변수 전달하기 [- 주로 식별자 전달 ] 서버소켓URL/데이터1/데이터2/데이터3
+	// --- 메소드 4가지 자동으로 실행
+		// 1. 클라이언트소켓이 정상적으로 서버소켓에 접속했을때
+		clientSocket.onopen = null;
+		// 2. 클라이언트소켓이 서버소켓과 연결에서 오류가 발생했을때
+		clientSocket.onerror = null;
+		// 3. 클라이언트소켓의 서버소켓과 연결이 끊겼을때
+		clientSocket.onclose = null;
+		// 4. 클라이언트소켓이 메세지를 받았을때
+		clientSocket.onmessage = e => onMsg(e);
 	
 	
+// 3. 서버에게 메시지 전송
+function onSend() {
+	// 3-1 textarea 입력값 호출
+	let msg = document.querySelector('.msg').value;
+	if(msg == '') { alert('내용을 입력해주세요.'); return;}
+	// 3-2 메세지 전송
+	clientSocket.send(msg);
+	// 클라이언트소켓과 연결된 서버소켓에게 메시지 전송 ----> 서버소켓의 @OnMessage로 이동
+}	
+
+// 4. 메세지를 받았을때
+function onMsg(e) {
+	console.log(e);
+	console.log(e.data);
+	
+	let msg = JSON.parse(e.data);
+		// JSON.parse() : 문자열타입의 JSON형식을 JSON타입으로 변경 
+		// JSON.stringify() : JSON타입의 JSON형식을 문자열타입으로 변경 
+		
+	let chatcont = document.querySelector('.chatcont');
+	
+	let html = chatcont.innerHTML;
+
+	if(msg.frommid == loginMid) {
+		console.log(true)
+		html += `
+			<div class="rcont"> 
+				<div class="subcont">
+					<div class="date"> 오전 10:02 </div>
+					<div class="content"> ${msg.msg} </div>
+				</div>
+			</div>
+		`;
+	}else{
+		console.log(msg)
+		html += `
+			<div class="lcont"> 
+				<!-- 보낸사람 프로필  -->
+				<img class="pimg" src="/jspweb/member/img/default.webp" />
+				<div class="tocont">
+					<div class="name">${msg.frommid}</div> <!-- 보낸 사람 -->
+					<div class="subcont">
+						<div class="content"> ${msg.msg} </div>
+						<div class="date"> 오전 10:02 </div>
+					</div>
+				</div>
+			</div>
+		`;
+	}
+	
+	
+	
+	chatcont.innerHTML = html;
+	
+}
 	
 // ------------------------------------------------------------------------------ // 
 /*
@@ -57,43 +121,6 @@ let clientSocket = new WebSocket(`ws://localhost:80/jspweb/serversokcet/${loginM
 		
 	
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -178,4 +205,33 @@ function onmsg(event){
 				<--------------------------------
 				3. 서버가 '안녕' 메시지 보낸다.
 		
+*/
+
+
+/*
+
+				<!-- 보냈을때 메시지 [ 오른쪽 ]   -->
+				<div class="rcont"> 
+					<div class="subcont">
+						<div class="date"> 오전 10:02 </div>
+						<div class="content"> 안녕하세요. ㅋㅋㅋ </div>
+					</div>
+				</div>
+				
+				<!-- 알림 메시지  -->
+				<div class="alarm"> 강호동님이 입장 하셨습니다. </div>
+				
+				<!-- 받았을때 메시지 [ 왼쪽 ]  -->
+				<div class="lcont"> 
+					<!-- 보낸사람 프로필  -->
+					<img class="pimg" src="/jspweb/member/img/default.webp" />
+					<div class="tocont">
+						<div class="name">강호동</div> <!-- 보낸 사람 -->
+						<div class="subcont">
+							<div class="content"> 그래 안녕 ~ </div>
+							<div class="date"> 오전 10:10 </div>
+						</div>
+					</div>
+				</div>
+	
 */
