@@ -6,75 +6,162 @@ if( loginState == false ){ alert('회원전용 페이지입니다.'); location.h
 
 // 2. JS 클라이언트[유저] 소켓 만들기 
 console.log( '채팅방에 입장한 아이디 : ' + loginMid );
-let clientSocket = new WebSocket(`ws://192.168.17.147/jspweb/serversokcet/${loginMid}`);
+//let clientSocket = new WebSocket(`ws://localhost:80/jspweb/serversokcet/${loginMid}`);
+let clientSocket = new WebSocket(`ws://192.168.17.96:80/jspweb/serversokcet/${loginMid}`);
 	// - 클라이언트소켓이 생성되었을때 자동으로 서버소켓에 접속 ----> 서버소켓의 @OnOpen 으로 이동
 	// - 서버소켓URL에 매개변수 전달하기 [- 주로 식별자 전달 ] 서버소켓URL/데이터1/데이터2/데이터3
-	// --- 메소드 4가지 자동으로 실행
-		// 1. 클라이언트소켓이 정상적으로 서버소켓에 접속했을때
-		clientSocket.onopen = null;
-		// 2. 클라이언트소켓이 서버소켓과 연결에서 오류가 발생했을때
-		clientSocket.onerror = null;
-		// 3. 클라이언트소켓의 서버소켓과 연결이 끊겼을때
-		clientSocket.onclose = null;
-		// 4. 클라이언트소켓이 메세지를 받았을때
-		clientSocket.onmessage = e => onMsg(e);
-	
-	
-// 3. 서버에게 메시지 전송
-function onSend() {
-	// 3-1 textarea 입력값 호출
-	let msg = document.querySelector('.msg').value;
-	if(msg == '') { alert('내용을 입력해주세요.'); return;}
-	// 3-2 메세지 전송
-	clientSocket.send(msg);
-	// 클라이언트소켓과 연결된 서버소켓에게 메시지 전송 ----> 서버소켓의 @OnMessage로 이동
-}	
-
-// 4. 메세지를 받았을때
-function onMsg(e) {
-	console.log(e);
-	console.log(e.data);
-	
-	let msg = JSON.parse(e.data);
-		// JSON.parse() : 문자열타입의 JSON형식을 JSON타입으로 변경 
-		// JSON.stringify() : JSON타입의 JSON형식을 문자열타입으로 변경 
+	// --- 메소드 4가지 메소드 자동으로 실행 
+		// 1. (자동실행) 클라이언트소켓이 정상적으로 서버소켓 접속했을때
+	clientSocket.onopen = e => { console.log('서버와 접속이 성공'); 	} ;
+		// 2. (자동실행) 클라이언트소켓이 서버소켓과 연결에서 오류가 발생했을때.
+	clientSocket.onerror = e => { console.log('서버와 오류발생:'+e ); };
+		// 3. (자동실행) 클라이언트소켓이 서버소켓과 연결이 끊겼을때.
+	clientSocket.onclose = e => { console.log('서버와 연결 끊김:'+e ); };
+		// 4. (자동실행) 클라이언트소켓이 메시지를 받았을때.
+	clientSocket.onmessage = e => onMsg( e ); 
+		// send 보내기는 없음.
 		
-	let chatcont = document.querySelector('.chatcont');
+// 3. 서버에게 메시지 전송 
+function onSend(){
+	// 3-1 textarea 입력값 호출 
+	let msaValue = document.querySelector('.msg').value;
+	if( msaValue == ''){ alert('내용을 입력해주세요.'); return; }	
+	// 3-2 메시지 전송 .. . 
 	
-	let html = chatcont.innerHTML;
-
-	if(msg.frommid == loginMid) {
-		console.log(true)
-		html += `
-			<div class="rcont"> 
-				<div class="subcont">
-					<div class="date"> 오전 10:02 </div>
-					<div class="content"> ${msg.msg} </div>
-				</div>
-			</div>
-		`;
-	}else{
-		console.log(msg)
-		html += `
-			<div class="lcont"> 
-				<!-- 보낸사람 프로필  -->
-				<img class="pimg" src="/jspweb/member/img/default.webp" />
-				<div class="tocont">
-					<div class="name">${msg.frommid}</div> <!-- 보낸 사람 -->
-					<div class="subcont">
-						<div class="content"> ${msg.msg} </div>
-						<div class="date"> 오전 10:02 </div>
-					</div>
-				</div>
-			</div>
-		`;
-	}
+	let msg = { type : 'message' , content : msaValue }
 	
-	
-	
-	chatcont.innerHTML = html;
-	
+	clientSocket.send( JSON.stringify( msg ) ); 
+	// 클라이언트소켓과 연결된 서버소켓에게 메시지 전송 ----> 서버소켓의 @OnMessage 으로 이동 
+	// 3-3 메시지 전송 성공시 입력상자 초기화
+	document.querySelector('.msg').value = ``;
 }
+
+// 4. 메시지를 받았을때 후추 행동(메소드) 선언 
+function onMsg( e ){
+	console.log( e ); // e : 메시지 받았을때 발생한 이벤트 정보가 들어있는 객체
+	console.log( e.data ); // .data 속성에 전달받은 메시지 내용 
+	
+	let msg = JSON.parse( e.data );
+		// JSON.parse( ) 		: 문자열타입의 JSON형식을 JSON타입으로 변환 
+		// JSON.stringify( ) 	: JSON타입 을 문자열 타입 (JSON형식 유지)으로 변환 
+		console.log( msg.msg ); // java,js console내 출력시 줄바꿈 \n 맞음.. html에서의 줄바꿈 <br>
+		
+		// 1. 특정 문자열 찾아서 1개 치환/바꾸기/교체 
+		let content = msg.msg.replace( '\n' , '<br>' );	// replace( '변경할문자열|정규표현식' , '새로운문자' );
+		console.log( content );
+		// 2. 특정 문자열 찾아서 찾은 문자열 모두 치환/바꾸기/교체 => java : .replaceAll();   js : 정규표현식 
+		content  = msg.msg.replace( /\n/g , '<br>');	// /g : 동일한 패턴의 모든 문자찾기[전체]
+		
+		console.log( content );
+		
+	// 1. 어디에 출력할껀지 
+	let chatcont = document.querySelector('.chatcont')
+	// 2. 무엇을 
+	let html = ``;
+		// 2-2 만약에 내가 보냈으면. [ 보낸사람아이디와 로그인된사람의 아이디와 같으면 ]
+		if( msg.frommid == loginMid ){
+				html = `<div class="rcont"> 
+							<div class="subcont">
+								<div class="date"> ${ msg.date } </div>
+								<div class="content"> ${ content } </div>
+							</div>
+						</div>`;
+		}else{ // 2-2 내가 보낸 내용이 아니면
+			html = `
+					<div class="lcont"> 
+						<img class="pimg" src="/jspweb/member/img/${ msg.frommimg }" />
+						<div class="tocont">
+							<div class="name">${ msg.frommid }</div>
+							<div class="subcont">
+								<div class="content"> ${ content } </div>
+								<div class="date"> ${ msg.date } </div>
+							</div>
+						</div>
+					</div>`
+		}
+	// 3. 누적 대입 [ 기존 채팅목록 에 이어서 추가 += ]
+	chatcont.innerHTML += html;
+	
+	// ------------------- 스크롤 최하단으로 내리기 ( 스크롤 이벤트 ) --------------- // 
+	// 1. 현재 스크롤의 상단 위치 .
+	//let topHeight = chatcont.scrollTop;	// dom객체.scrollTop : 해당 div의 스크롤 상단위치
+	//	console.log( topHeight );	// 30px; 
+	// 2. 현재 dom객체의 전체 높이 
+	//let scrollHeight = chatcont.scrollHeight; // dom객체.scrollHeight : 해당 div의 스크롤 전체 높이 
+	//	console.log( scrollHeight )	// 600px;
+	// 3. 전체 높이 값을 현재 스크롤 상단 위치에 대입 
+	chatcont.scrollTop = chatcont.scrollHeight;
+	
+} // f end 
+
+// 5. textarea 입력창에서 입력할때마다 이벤트 발생 함수 
+function onEnterKey(){	
+	// 2. 만약에 ctrl + 엔터 이면 줄바꿈.
+	if( window.event.keyCode == 13 && window.event.ctrlKey ){ // 조합키 : 한번에 두개 이상 입력 가능한 키 [ ctrl.shift+alt 등]
+		document.querySelector('.msg').value += `\n`; return;
+	}
+	// 1. 만약에 입력한 키 가 [엔터] 이면 메시지 전송
+	if( window.event.keyCode == 13 ){ onSend(); return; }
+}
+// 6. 이모티콘 출력하기 
+getEmo();
+function getEmo(){
+	// - 
+	for( let i = 1 ; i<=43 ; i++ ){
+		document.querySelector('.emolistbox').innerHTML 
+			+= `<img 	onclick="onEmoSend(${i})" 
+						src="/jspweb/img/imoji/emo${i}.gif" />`;
+	}
+}
+// 7. 클릭한 이모티콘 서버로 보내기.
+function onEmoSend( i ){
+	// 1. msg 구성 
+	let msg = { type : 'emo' , content : i  };
+		// type : msg[메시지] , emo[이모티콘] , img[사진]
+		// content : 내용물 
+		
+	// 2. 보내기 
+	clientSocket.send( JSON.stringify( msg ) );
+			// JSON타입을 String타입으로 변환해주는 함수. [ 모양/형식/포멧 : JSON ] 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 	
 // ------------------------------------------------------------------------------ // 
 /*
@@ -100,8 +187,12 @@ function onMsg(e) {
 		
 	* WebSocket 클라이언트 웹 소켓 라이브러리 
 		- 소켓 관련된 함수들을 제공하는 클래스 
-		1. 웹소켓 객체 생성 
+		1. 클라이언트 웹소켓 객체 생성 
 			new WebSocket("ws://IP주소:PORT번호/프로젝트명/서버소켓경로");
+		
+		2. 메소드 제공 
+			.send( ) : 클라언트소켓이 연결된 서버소켓에게 메시지를 전송 메소드
+		
 			
 	* 동기화 vs 비동기화 
 	
@@ -121,6 +212,43 @@ function onMsg(e) {
 		
 	
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -205,33 +333,4 @@ function onmsg(event){
 				<--------------------------------
 				3. 서버가 '안녕' 메시지 보낸다.
 		
-*/
-
-
-/*
-
-				<!-- 보냈을때 메시지 [ 오른쪽 ]   -->
-				<div class="rcont"> 
-					<div class="subcont">
-						<div class="date"> 오전 10:02 </div>
-						<div class="content"> 안녕하세요. ㅋㅋㅋ </div>
-					</div>
-				</div>
-				
-				<!-- 알림 메시지  -->
-				<div class="alarm"> 강호동님이 입장 하셨습니다. </div>
-				
-				<!-- 받았을때 메시지 [ 왼쪽 ]  -->
-				<div class="lcont"> 
-					<!-- 보낸사람 프로필  -->
-					<img class="pimg" src="/jspweb/member/img/default.webp" />
-					<div class="tocont">
-						<div class="name">강호동</div> <!-- 보낸 사람 -->
-						<div class="subcont">
-							<div class="content"> 그래 안녕 ~ </div>
-							<div class="date"> 오전 10:10 </div>
-						</div>
-					</div>
-				</div>
-	
 */
