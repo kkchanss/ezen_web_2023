@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+
+/* -------------- 공통부문 기본값제거 -------------- */
+*{padding: 0px; margin: 0px;}
+li{list-style-type: none;}
+*:focus { outline: none;}
+
+/* -------------- 전체 레이아웃 -------------- */
+#wrap{ width : 600px; margin: 0 auto; padding-top: 50px;}
+
+
+/* -------------- 가계부 제목 -------------- */
+.header{
+	text-align: center;
+	padding-bottom: 50px;
+	font-size: 50px;
+}
+
+/* -------------- 입력칸 구역 -------------- */
+.date_content{
+	border: solid 0.5px #A9A8AA;
+	padding: 20px 20px;
+	margin-bottom: 20px;
+	background-color: #ECEEED;
+}
+
+.date_content input{
+	margin: 10px 10px;
+	border: none;
+	background-color: #ECEEED;
+}
+
+.date_content li{
+	border-bottom: 0.5px dashed #5C5B5D;
+	font-weight: bold; 
+}
+
+.date_content button{
+	background-color: #A9A8AA;
+	border: none;
+	width : 560px; height: 50px;
+	margin-top: 10px;
+	font-weight: bold; 
+	font-size: 20px;
+}
+
+.date_content button:hover { color: white; background-color: #292C32; }
+
+
+/* -------------- 테이블 구역 -------------- */
+
+.list_table{
+	border: solid 0.5px #A9A8AA;
+	background-color: #ECEEED;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 20px;
+}
+
+
+
+.sum{
+	background-color: #A9A8AA;
+	margin-top: 30px;
+	font-weight: bold; 
+	font-size: 20px;
+	padding: 10px 10px;
+	border: solid 0.5px #A9A8AA;
+}
+
+.list_table button{
+	background-color: #A9A8AA;
+	border: none;
+	font-weight: bold; 
+	width: 40px; height: 25px;
+}
+
+.list_table th, .list_table td{
+	width: 150px;
+	text-align: center;
+}
+
+.list_table button:hover { color: white; background-color: #292C32; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

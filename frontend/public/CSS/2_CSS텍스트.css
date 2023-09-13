@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+*{
+	font-family: "궁서"; 				/* 폰트 */ 
+	color: blue; 					/* 폰트 색상 */
+}
+
+.title{
+	font-size: 25px; 				/* 폰트 크기 */
+	font-style : italic; 			/* 기울기 */
+	font-weight: bold; 				/* 굵기 */
+}
+
+.content{
+	font-family: "굴림"; 				/* 폰트 */ 
+	color: black;					/* 폰트 색상 */
+	word-spacing: 5px; 				/* 어간 : 단어들간의 간격*/
+	letter-spacing: 2px;			/* 자간 : 글자들 간의 간격*/
+	line-height: 150%;				/* 줄간격 */
+}
+
+.writer{
+	text-align: center; 			/* 텍스트 정렬 */
+	text-decoration: line-through;  /* 밑줄, 윗줄, 취소선 등등 */
+	text-shadow: 1px 3px 3px orange;/* 그림자! 강조를 할때 주로 사용 */
+			   /*x축  y축 흐림정도 색상 , -(마이너스)도 사용가능*/
+	
+	/* 색상을 표현하는 방법 */
+	/* 색상을 모두 외울 필요는 없음 인터넷에 검색하면 됨. 예)RGB 색상표 */
+	/* 색상 커스텀 하거나 따오는 프로그램 사용하면 됨. */
+	/* 1. 색상이름 많이 사용함 */
+	color: red;
+	/* 2. 헥사표기법, 16진수 많이 사용함 */
+	color: #e8e8e8;
+	/* 3. RGB */
+	color: raba (251,247,17);
+}

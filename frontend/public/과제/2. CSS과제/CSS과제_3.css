@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+
+/* 이미지 박스 */
+.imgbox{
+	border: solid 0.5px #E1E3E3;
+	border-bottom : 0px;
+	width: 400px;
+}
+
+/* 이미지 크기조정 */
+.img{
+	width: 400px;
+}
+
+/* 텍스트 박스 */
+.textbox{
+
+	border: solid 0.5px #E1E3E3;
+	/* 여백 추가 떄문에 상자 크기가 달라져서 여백만큼 크기 줄임 */
+	width: 380px;
+	padding: 10px 10px;
+}
+
+/* 강조 글씨 */
+.ss{
+	color: orange;
+	font-weight: bold;
+}

@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+
+
+/* CSS 기본값 여백 제거 설정 */
+*{ padding: 0px; margin: 0px; }
+/* 글머리 제거 */
+li{ list-style-type: none;}
+
+/* 외부폰트 호출 */
+@font-face {
+    font-family: 'HANAMDAUM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/HANAMDAUM.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+	}
+	
+	
+#wrap{ /* 웹페이지 전체구역 */
+	margin: 0 auto; /* 구역/박스 가로 가운데 정렬 */
+}
+
+#header{
+	width: 1200px; 			/* 가로사이즈 */
+	margin: 0 auto; 		/* 헤더 가로 가운데 정렬 */
+	display: flex; 			/* 하위요소 배치방법 */
+	justify-content: space-between; /* 가로 균등 배치 */
+}
+
+/* 헤더 */
+.header_img{
+	padding: 20px;
+}
+
+.header_manu{
+	text-align: right;	
+}
+
+.header_manu_bottom{
+	display: flex;
+	font-family: 'HANAMDAUM'; /* 외부폰트 사용 */
+}
+
+.header_manu_bottom li{
+	padding: 30px;
+	justify-content: space-between;
+}
+
+
+
+/* 메인 */
+#main{
+	width: 1200px;
+	margin: 0 auto; 		/* 가로 가운데 정렬 */
+	display: flex; 			
+	justify-content: space-between; 
+}
+.main_text_01 ul{
+	display: flex;
+	flex-direction : column;
+}
+
+
+.The_베이킹{
+	background-color: #0CA9A3;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+/* 맨 오른쪽 본문 상위 메뉴들 */
+.베이킹요리, .최근댓글{
+	border-top: solid 2px black;
+	border-bottom: solid 0.5px #eeeeee;
+	margin: 10px 0px;;
+	font-weight: bold;
+	padding: 10px;
+}
+
+/* 맨 오른쪽 본문 상위 안내문구 */
+.main_text_01_top{
+	padding-left: 10px;
+	line-height: 150%;
+}
+
+
+/* 검색 버튼 */
+.button_text{
+	width: 130px; height: 28px;
+	margin-left: 15px;
+	margin-top: 20px;
+}
+.search_button{
+	width: 45px;  height: 28px;
+}
+
+
+/* 맨 오른쪽 본문 하위 메뉴들 */
+.main_text_01_bottom{
+	padding-left: 30px;
+	line-height: 250%;
+}
+
+/* 본문 가운데 전체 */
+.main_text_02{
+	width: 450px;
+}
+
+/* 본문 가운데 게시판 제목*/
+.main_text_02_H{
+	font-family: 'HANAMDAUM';
+	border-bottom: solid 2px black;
+	padding: 10px;
+	margin-bottom: 5px;
+}
+
+/* 본문 가운데 게시판 목록 */
+.main_text_02_L{
+	margin-bottom: 50px;
+}
+.main_text_02_L li{
+	padding-left: 5px;
+	line-height: 250%;
+}
+
+.list_item{
+	display: flex;
+	justify-content: space-between;
+}
+
+
+
+
+/* 본문 왼쪽 전체 */
+.main_text_03{
+	width: 450px;
+}
+
+.main_text_03_img_list{
+	display: flex;
+}
+
+.main_text_03_img_list img{
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.main_text_03_text{
+	padding-left: 25px;
+}
+
+/* 본문 왼쪽 이미지 자체 */
+.main_text_03_img{
+	width: 200px;
+	
+}
+
+
+/* 푸터 전체 */
+.footer{
+	background-color: #05354E;
+	height: 250px;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.footer_box{
+	width: 1200px;
+	margin: 0 auto;
+}
+/* 푸터 상단 글귀 */
+.foorter_top{
+	display: flex;
+	flex-direction: row;
+	margin-top: 7px;
+}
+
+.foorter_top li{
+	display: inline-block;
+	margin-right: 30px;
+}
+
+/* 푸터 하단 메뉴 */
+.foorter_bottom{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+	margin-left: 10px;
+}
+
+.foorter_bottom li{
+	margin-left: 3px;
+}
+

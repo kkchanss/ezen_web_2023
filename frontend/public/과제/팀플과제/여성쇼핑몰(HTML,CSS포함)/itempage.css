@@ -1,0 +1,476 @@
+@charset "UTF-8";
+
+/* -------------- 공통부문 기본값제거 -------------- */
+*{padding: 0px; margin: 0px; font-size: 12px;}
+li{list-style-type: none;}
+a{color: black; text-decoration: none;}
+
+
+/* -------------- 헤더 (오창현) -------------- */
+
+#warp{
+   margin: 0 auto;
+   align-items: center;
+}
+
+#warp a:hover {
+   color: #C6C1BB;
+}
+
+.top_header_clear{
+   width: 100%;
+   height: 15px;
+   background-color: #EBEAE6;
+}
+
+#top_header{
+   display: flex;
+   justify-content: space-between;
+   text-align: center;
+   font-size: 10px;
+   width: 100%;
+   margin: 10px 10px 10px 10px;
+}
+
+#top_header span{
+   color: #EBEAE6;
+}
+
+.top_header_left{
+   margin-left: 10px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.top_header_left_sub{
+   position: relative;
+}
+
+.top_header_left_sub_drop{
+   top: 30px;
+   left: -20px;
+   border: 1px solid #EBEAE6;
+   display: none;  /* 서브메뉴 숨김  */
+   position: absolute;
+   width: 140px;
+   height: 15px;
+   text-align: center;
+   padding: 5px;
+   
+}
+
+.top_header_left_sub:hover .top_header_left_sub_drop{
+   display: block;
+}
+
+   
+
+.top_header_right{
+   margin-right: 30px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 10px;
+}
+
+
+.top_header_right select{
+   border: none;
+
+}
+
+.top_header_right_drop{
+   position: relative; /* 부모요소에 상대위치 */
+   
+}
+
+.top_header_right_drop_sub{
+   top: 25px;
+   left: -25px;
+   border: 1px solid #EBEAE6;
+   display: none;  /* 서브메뉴 숨김  */
+   position: absolute;
+   text-align: left;
+   line-height: 250%;
+   width: 70px;
+   height: 150px;
+   padding: 10px 10px;
+   text-decoration: underline;
+}
+
+
+.top_header_right_drop:hover .top_header_right_drop_sub{
+   display: block;
+}
+
+.top_header_margin{
+   width: 1200px;
+   height: 80px;
+   margin: 0 auto;
+}
+
+#top_header li{
+   display: inline-block;
+}
+
+#top_header ul{
+   letter-spacing: 2px;
+}
+
+#top_header img{
+   vertical-align: middle;
+}
+
+
+#mid_header{
+   width: 1200px;
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.mid_header_clear{
+   width: 1200px;
+   height: 60px;
+   margin: 0 auto;
+}
+
+.logo_sub{
+   width: 1200px;
+   height: 90px;
+}
+
+.logo_sub img{
+   width: 140px;
+}
+
+#low_header{
+   width: 1200px;
+   height: 35px;
+   margin: 0 auto;
+   padding-bottom: 30px;
+}
+
+.low_header_product{
+   width: 1150px;
+   height: 30px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: 14px;
+   margin-right: 50px;
+}
+
+
+
+.low_header_drop{
+   position: relative; /* 부모요소에 상대위치 */
+}
+
+.low_header_drop_sub{
+   top: 40px;
+   left: -10px;
+   border-right : 1px solid #EBEAE6;
+   border-bottom: 1px solid #EBEAE6;
+   border-left: 1px solid #EBEAE6;
+   color: #EBEAE6;
+   display: none;  /* 서브메뉴 숨김  */
+   position: absolute;
+   font-size: 12px;
+   line-height: 200%;
+   width: 110px;
+   height: 90px;
+   padding: 10px 10px;
+   text-decoration: underline;
+   background-color: white;
+}
+
+
+.low_header_drop:hover .low_header_drop_sub{
+   display: block;
+}
+
+
+/* 사이드바 시작 */
+#sidebar{
+
+}
+
+#sidebar img{
+   width: 33px;
+}
+
+
+
+.sidebar_sub{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   line-height: 220%;
+   position: fixed;
+   right: 30px;
+   top: 25%;
+   font-size: 14px;
+   
+}
+
+.sidebar_drop{
+   position: relative;
+
+}
+
+.sidebar_drop_sub{
+   top: 10px;
+   left: -70px;
+   background-color: #333333;
+   display: none;  /* 서브메뉴 숨김  */
+   position: absolute;
+   font-size: 12px;
+   text-align: center;
+   vertical-align: center;
+   padding: 0px 10px;
+   
+}
+
+.sidebar_drop_sub a{
+   color: white;
+}
+
+.sidebar_drop:hover .sidebar_drop_sub{
+   display: block;
+}
+
+
+
+/* -------------- 헤더 끝 (오창현) -------------- */
+
+/* -------------- 상세 페이지 본문 (김찬희) -------------- */
+
+/* 본문 */
+#content{
+   width: 1000px;
+   display: flex;
+   margin: 0 auto;
+   justify-content: center;
+   align-items: center;
+   padding: 50px 20px;
+}
+
+/* 본문 이미지 설정 */
+.cont_img{
+   border-right: 1px solid #E0E0E0;
+   padding: 50px;
+}
+
+.cont_img img{
+   width: 300px;
+}
+
+/* 본문 내용 설정 */
+.items{
+   width: 400px;
+   padding: 50px;
+   display: flex;
+   flex-direction: column;
+   vertical-align: top;
+}
+
+/* 상품 내용 */
+.item_cont{
+   color: #5E5E5E;
+   font-size: 13px;
+   margin-bottom: 20px;
+}
+
+/* 상품 가격 */
+.item_price{
+   width: 165px;
+   display: flex;
+   justify-content: space-between;
+   color: #97968F;
+   font-size: 11px;
+   margin-bottom: 10px;
+   
+}
+
+.item_price .price_num{
+   text-decoration:line-through; 
+}
+
+/* 상품 할인 가격 */
+.item_dis_price{
+   width: 250px;
+   color: #404A7C;
+   font-size: 12px;
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 20px;
+   font-weight: bold;
+}
+
+
+.item_dis_price .text_black{
+   color: black;
+   font-weight: normal;
+}
+
+/* 상품 선택 */
+
+.item_select{
+   color: #97968F;
+   font-size: 13px;
+   display: flex;
+   justify-content: space-between;
+   margin: 10px 0px;
+}
+
+.item_select select{
+   width: 280px; height: 30px;
+}
+
+/* 제품 최종 */
+
+.item_final{
+   border-top: 1px solid #eeeeee;
+   padding: 10px;
+   font-size: 12px;
+   background-color: #FBFBFB;
+   display: flex;
+   justify-content: space-between;
+   text-align: center;
+   align-items: center;
+}
+
+.item_final .final_list{
+   text-align: left;
+   line-height: 150%;
+}
+
+.final_list .text_gray{
+   color: #97968F;
+   font-size: 10px;
+}
+
+.item_final .number{
+   width: 40px; height: 15px;
+}
+
+/* 최종 가격 */
+.final_price {
+   text-align: right;
+   color: #97968F;
+   font-size: 13px;
+   padding: 20px 0px;
+}
+
+.final_price .bold{
+   font-weight: bold;
+}
+
+.final_price .price{
+   color: black;
+   font-size: 14px;
+}
+
+/* 제품 버튼들 */
+.item_btn input{
+   width: 128px; height: 45px;
+   border: 1px solid #97968F;
+   background-color: white;
+   color: #777777;
+   font-size: 14px;
+}
+
+.item_btn .buy{
+   background-color: #5E5E5E;
+   color: white;
+   
+}
+
+.item_btn input:hover{
+   border: 2px solid black;
+}
+
+.item_btn .buy:hover{
+   background-color: black;
+   border: 1px solid black;
+}
+
+/* -------------- 상세 페이지 본문 끝 (김찬희) -------------- */
+
+/* -------------- 푸터 (이성호) -------------- */
+
+
+.ft_top_menu{display: flex;}
+.line{padding: 0px 10px;}/* | 사이 여백 */
+
+#footer{
+   border-top: 1px solid #dbdbdb;
+   margin-top: 30px;
+   
+}
+
+/*푸터 상단 시작*/
+.ft_top{
+   width: 1200px; margin: 0 auto;
+   display: flex;
+   padding: 50px;
+      /*위에 태두리*/
+}
+
+/*푸터 중단 시작*/
+.content_ft{
+   width: 1200px; margin: 0 auto;
+   display: flex; justify-content: space-between;
+   padding: 50px;
+}
+
+.content_ft_in{
+   display: flex;                  /*하위 요소 배치방법*/
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.content_ft_in  p{
+   font-size: 3px;
+   color: white;
+}
+
+
+.ft_content_icon{
+   width: 40px;
+    height: 40px;
+    background-color: gray;
+    border-radius : 30px; 
+    margin-top : 10px;
+    margin-right: 20px;
+    
+}
+
+.ft_content_icon:hover{
+   background-color : #3D3D3D;
+}
+
+.content_ft h2{font-size: 20px;}
+
+/*푸터 하단 시작 */
+.ft_bottom{
+   width: 1200px; margin: 0 auto;
+   display: flex; justify-content: space-between;
+   padding: 50px;
+   color : #999999;
+}
+
+.ft_bottom p{
+   font-size: 3px;
+}
+ 
+.ft_bottom_p_color a{ 
+
+   background-color: #363d47;
+   color: white;
+}
+
+/* -------------- 푸터 끝 (이성호) -------------- */

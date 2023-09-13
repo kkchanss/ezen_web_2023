@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+
+.bookimg{
+	widows: 300px;
+}
+
+
+.title{
+	color: orange;
+	font-size: 40px;
+}
+
+.title2{
+	color: black;
+	font-size: 25px;
+}
+
+.content{
+	border: solid 0px;
+	padding: 20px 20px;
+	background-color: #0F6878;
+	color: white;
+	width: 500px;
+	height: 80px;
+	line-height: 155%;
+}
+
+.content2{
+	color: orange;
+	font-weight: bold; 
+}

@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.box1, .box2, .box3, 
+.box4, .box5, .box6,
+.box7, .box8, .box9,
+.box10, .box11, .box12{
+	width: 100px; height: 80px;
+	background-color: yellow;
+	border: solid 1px red;
+}
+
+.box2{
+	/* position 메뉴가 열렸다 닫혔다 하는게 이거임! */
+	position: relative; /* 상대위치 : 현요소의 시작위치가 기준점*/
+	left: 50px; /* 왼쪽으로부터 50px 이동 , 왼쪽에 50px를 넣는 개념인듯*/
+	top: 50px; /* 위쪽으로부터 50px 이동 */
+}
+
+.box5{
+	position: absolute; /* 절대위치 : 부모요소의 시작위치가 기준점*/
+	left: 50px;
+	top: 50px;
+}
+
+.box8{
+	position: fixed; /* 고정위치 : 디바이스가 기준이 됨, 화면에 고정! */
+	right: 50px;
+	bottom: 50px;
+}
+
+.parent1{ /* 부모요소에 먼저 relative를 넣어줘야 자식요소가 부모의 시작위치를 기준으로 이동시작*/
+	position: relative;
+	border: solid 1px black;
+}
+
+.box11{
+	position: absolute; /* 부모 요소에 relative가 되어 있지 않으면 직계 말고 더 상위 부모에게 위치고정이 가능 */
+	top: 40px;
+	left: 100px;
+}
+
+.box12{
+	position: static; /* 생략시 기본값, 그냥 순서 배치 */
+	left: 100px; /* static를 썼기 떄문에 위치 변경이 불가능함 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

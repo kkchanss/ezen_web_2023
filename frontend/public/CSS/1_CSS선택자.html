@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS 선택자</title>
+	
+	<link href="1_CSS선택자.css" rel="stylesheet">
+	
+	</head>
+	<body>
+	
+	<!-- 
+		CSS 선택자 : 꾸미기 대상 선택
+			1. *{} 				: 모든곳에 적용 (와일드카드) *기본 스타일 적용할떄 많이 사용 배경, 여백, 폰트 등
+			2. 태그명{} 			: 해당태그에만 적용 *잘 사용하지 않음
+			3. .class 명 {}	 	: class 속성 이용 (복수형)
+			4. #id명 {}			: id 속성 이용 (단일형)
+			
+			- 우선순위 : 속성이 중복일 경우
+			 style -> id -> .class -> 태그명 -> *
+			 
+			- 보편적으로는 .class를 사용하고 특정 부분에는 id 사용
+			- style은 이왕이면 사용하지 않음 특별한 경우만 ! 
+	 -->
+	
+		<P> 유재석 </P>
+		<p> 강호동 </p>
+		<h4> 신동엽 </h4>
+		<p class="text1"> 김희철 </p>
+		<p id="text2"> 서장훈 </p>
+		
+		<h4 class="text1" id="text2"> 중복 </h4>
+		
+		<h4 class="text1" id="text2" style="color: purple;"> 중복2 </h4>
+
+	
+	</body>
+</html>

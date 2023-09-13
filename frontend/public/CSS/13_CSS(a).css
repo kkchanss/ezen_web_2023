@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+a{ /* 모든 a 태그에 적용 */
+	color: black;
+	text-decoration: none; /* 밑줄, 윗줄, 취소선 */
+}
+
+/* 액션 속성 */
+a:hover { /* 선택자:hover{} 해당 요소에 마우스를 올렸을때 */
+	color: orange;
+	background-color: black;
+}
+
+a:active { /* 해당요소를 클릭 했을때나 드레그 했을때 CSS */
+	color: blue;
+}
+
+a:visited { /* 해당요소를 클릭한 적이 있으면 CSS */
+	color: red;
+}
+
+
+#header{
+	background-color: #eeeeee;
+	display: flex;
+	justify-content: center;
+}
+
+*{padding: 0px; margin: 0px;}
+li{list-style-type: none;}
+
+.drop_menu{
+	display: inline-block;
+	margin-left: 30px;
+	position: relative; /* 부모요소에 상대위치 설정 */
+}
+
+.sud_menu{
+	display: none; /* 숨김처리 */
+	position: absolute;
+	top: 20px;
+	width: 80px;
+	border-bottom: solid 1px #eeeeee;
+	border-right: solid 1px #eeeeee;
+	border-left: solid 1px #eeeeee;
+	padding-top: 10px;
+}
+
+/* 메뉴에 마우스를 올렸을때 서브메뉴를 노출하기 */
+.drop_menu:hover .sud_menu{
+	display: block; /* 기본값 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

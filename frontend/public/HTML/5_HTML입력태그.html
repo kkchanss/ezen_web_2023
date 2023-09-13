@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>입력태그</title>
+	</head>
+	<body>
+	
+	</body>
+	
+	<!-- 
+		<form></form> 	  				 : 데이터 입력 양식 폼 [추후에 백엔드 존재할때 전송 가능]
+		<input>							 : 입력상자
+			속성 [속성명 = 값]
+			1. type
+				type ="text" 			: 텍스트 입력
+				type ="password"		: 비밀번호 입력
+				type ="email"			: 이메일 입력
+				type ="radio"			: 원형 체크박스 (취소불가 그래서 단일 선택으로 주로 사용함, 주의할점은 name 속성을 동일하게 써야함.)
+				type ="checkbox"		: 네모 체크박스 (취소가능 복수선택으로 주로 사용함)
+				type ="file"			: 첨부파일
+				type ="color"			: 색상
+	  			type ="date"			: 날짜
+	 			type ="datetime-local" 	: 날짜/시간
+	 			type ="month"			: 월
+	 			type ="time"			: 시간
+	 			type ="week"			: 주
+	 			type ="range"			: 범위
+	 			type ="number"			: 숫자
+	 			type ="button"			: 버튼상자
+	 			type ="submit"			: 폼 전송
+	 			type ="reset"			: 폼에 포함된 입력내용 초기화
+	 		2. value 					: input 값 대입
+	 		3. readonly="readonly"		: 읽기모드 (수정불가)
+	 		4. disabled="disabled"		: 사용금지 모드
+	 		5. autofocus="autofocus" 	: 포커스(커서) 이동
+	 		6. maxlength="숫자입력"		: 입력가능한 최대 갯수
+	 		7. multiple="multiple"		: 첨부파일이 여러개 가능하게 함
+	 		8. placeholder="텍스트입력"  	: 가이드라인 텍스트
+	 		9. <legend> 제목 </legend>	: 그룹제목 입력하기
+	 		10. <fieldset> </fieldset>	: 그룹 만들기
+	 		11. <hr/>					: 구분선 삽입	
+	 		
+	 		<select> </select>			: 목록상자
+	 			<option></option>		: 목록안에 항목들
+	 		<textarea> </textarea>		: 긴글 텍스트 상자
+	 			rows=""					: 행 글자수
+	 			cols=""					: 열 글자수
+	 		
+	  -->
+	  <form>
+	  	  <fieldset>
+	  	  	  <legend> 그룹제목 </legend>
+		  	  <input type="text" placeholder="자기소개">											<br/>
+			  입력상자 	: <input value="유재석" readonly="readonly">								<br/>
+			  텍스트 		: <input type ="text" value="인사과" disabled="disabled">  				<br/>
+			  패스워드	: <input type ="password" autofocus="autofocus">  						<br/>
+			  이메일		: <input type ="email" maxlength="5">  									<br/>
+		  </fieldset>
+		  
+		  원형체크버튼 : <input type ="radio" name="comfirm"> 예 				
+		  			  <input type ="radio" name="comfirm"> 아니오 							<br/>
+		  			  
+		  네모체크버튼 : <input type ="checkbox"> 뉴스
+		    		  <input type ="checkbox"> 드라마											<br/>
+		    		  
+		  첨부파일	: <input type ="file">
+		    		  <input type ="file" multiple="multiple">								<br/>
+		    		  	  
+		    <hr/>
+		    		  	 
+		  색상 		: <input type="color">					<br/>
+		  날짜		: <input type="date"> 					<br/>
+		  날짜/시간	: <input type="datetime-local">			<br/>
+		  월			: <input type="month">					<br/>
+		  시간		: <input type="time">					<br/>
+		  주			: <input type="week">					<br/>
+		  범위		: <input type="range">					<br/>
+		  숫자		: <input type="number">					<br/>
+		  <input type="button" value="이벤트버튼">				<br/>
+		  <input type="submit" value="전송버튼">				<br/>
+		  <input type="reset" value="입력초기화">				<br/>
+		  
+		  <select> 
+		  	<option> 네이버 </option>
+		  	<option> 카카오 </option>
+		  	<option> 네이트 </option>
+		  </select>											<br/>
+		  
+		  <textarea rows="10" cols="10" ></textarea>			<br/>
+	  </form>
+	  
+</html>
+
+
+

@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+/* 기본여백 제거 */
+*{padding: 0px; margin: 0px; }
+
+.box1{
+	border: solid 1px red; 	/* 테두리 */
+		/*  선모양  선굵기 색상 */
+}
+
+.box2{
+	/* 상단 테두리(선) */
+	border-top:  solid 1px skyblue;
+	/* 오른쪽 테두리(선) */
+	border-right: dotted 2px orange;
+	/* 하단 테두리(선) */
+	border-bottom: double 3px red;
+	/* 왼쪽 테두리(선) */
+	border-left: dashed 4px black;
+}
+
+.box3{
+	border: solid 2px red;
+	border-radius: 5px; /* 둥근 모서리 */
+	box-shadow: 5px 5px 5px orange;
+	/* 안쪽 여백 */
+	padding: 10px;
+	/* 바깥 여백 */
+	margin: 20px;
+}
+
+.box4{
+	border: solid 1px blue;
+	/* 안쪽 상단 여백 */
+	padding-top: 20px;
+	/* 안쪽 오른쪽 여백 */
+	padding-right: 20px;
+	/* 안쪽 하단 여백 */
+	padding-bottom: 20px;
+	/* 안쪽 왼쪽 여백 */
+	padding-left: 50px;
+	
+	/* 바깥 상단 여백 */
+	margin-top: 20px;
+	/* 바깥 오른쪽 여백 */
+	margin-right: 60px;
+	/* 바깥 하단 여백 */
+	margin-bottom: 70px;
+	/* 바깥 왼쪽 여백 */
+	margin-left: 80px;
+}
+
+.box5{
+	border: solid 1px red;
+	/* 박스 사이즈 :  생략시 100% 기본값 적용 {디바이스 크기} 
+	반응형을 만들때는 %로 해야하고 고정크기는 px로 함!*/
+	width: 200px;
+	height: 200px;
+	/* 시계 방향으로 상,우,하,좌 */
+	padding: 10px 20px 30px 40px;
+	/* 상하, 좌우 */
+	padding: 10px 20px;
+	/* 시계 방향으로 상,우,하,좌 */
+	margin: 10px 20px 30px 40px;
+	/* 상하, 좌우 */
+	margin: 10px 20px;
+	
+	/* 박스안에 있는 내용물 가운데 정렬 */
+	text-align: center;
+	/* 박스가 가운데 정렬
+	이걸 사용 할떄는 무조건 width: 200px; 이렇게 크기를 설정 해줘야함*/ 
+	margin: 0 auto;
+}
+
+.box6{
+	border: solid 1px red;
+	margin: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

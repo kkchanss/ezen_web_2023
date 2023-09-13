@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+*{
+	font-family: "고딕";
+}
+
+.kakaoimg{
+	width: 170px;
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 20px;
+}
+
+div{
+	text-align: center;
+	margin: 5px;
+}
+
+.login_table{
+	border: solid 0.5px #E1E3E3;
+	text-align: center;
+	padding: 50px 30px;
+	margin: 5px;
+	/* 박스 가운데 정렬 */
+	margin-left: auto;
+	margin-right: auto;
+	width: 630px;
+	height: 500px;
+}
+
+.id, .password{
+	border: solid 1px #C4C4C4;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	width: 530px;
+	height: 45px;
+	font-size: 20px;
+	color: #626262;
+}
+.keep{
+	text-align: left;
+	margin-left: 30px;
+	font-size: 15px;
+	color: #474747;
+	margin-bottom: 20px;
+}
+
+.btn1, .btn2{
+	width: 530px;
+	height: 60px;
+	border: none;
+	font-weight: bold;
+	font-size: 18px;
+}
+.btn1{
+	background-color: #FEE500;
+}
+
+.btn3{
+	text-align: right;
+	border: none;
+	background-color: white;
+}
+.btn4, .btn5{
+	margin-left: auto;
+	margin-right: auto;
+	border: none;
+	margin-top: 20px;
+	background-color: white;
+	color: #474747;
+}
+
+.btn5{
+	font-weight: bold;
+	color: #303045;
+}
+
+.option{
+	border: none;
+}
+
+.text{
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 9px;
+}
+
+.text2{
+	font-weight: bold;
+	margin-bottom: 30px;
+}

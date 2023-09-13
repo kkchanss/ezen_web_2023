@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+/* ------------ 공통 부문 꼭 하기 ------------*/
+
+/* 기본 여백 제거 */
+*{padding: 0px; margin: 0px; font-size: 12px;}
+/* a태그 기본값 제거 */
+a{ color: black; text-decoration: none; }
+/* 글머리 제거 */
+li{ list-style-type: none;}
+/* 웹폰트 */
+
+
+/* ------------ 상단메뉴 ------------ */
+/* li 가로로 배치하는 방법 1 */
+.top_menu{
+	display: flex; /* 하위요소 배치 방법 */
+	justify-content: flex-end; /* 하위요소들의 가로정렬 */
+	align-items: center; /* 하위요소들의 세로정렬 */
+	border-bottom: solid 1px #dbdbdb; /* 아래 테두리 */
+	padding: 10px; /* 안쪽 여백 */
+	font-size: 10px; /* 글짜 크기, 부모요소에 적용시 하위 요소도 적용 */
+	margin-right: 20px;
+	/* li 가로로 배치하는 방법 2 */
+	/* .top_menu li{display: inline-block;} */
+}
+
+/* 이미지 크기 설정 */
+/* vertical-align: middle; 플렉스 없이 이미지 세로정렬 */
+.top_menu_icon{width:20px; vertical-align: middle;}
+/* | 여백 */
+.line{padding: 0px 10px;}
+
+
+/* ------------ 메인(하단)메뉴 ------------ */
+/* 메뉴와 검색창이 포함된 구역 */
+.main_menu{
+	display: flex;
+	justify-content: space-between; /* 양끝정렬 */
+	align-items: center; /* 세로정렬 */
+	padding: 0px 50px 0px 30px;
+	
+	position: sticky; /* 스크롤 내릴경우 고정 */
+	/* sticjy 사용시 주의할 사항 
+		 사용조건
+		 	1. 상위 부모의 높이 사이즈 안에서 고정 vs fixed는 디바이스
+			2. top right left bottom 중 1개는 필수로 넣어줘야함
+			3. 부모 요소에 overflow 속성 사용 금지
+	
+	*/
+	top: 0px; /* 상단위에 고정 */
+	z-index: 1; /* 겹쳤을때 순서 */
+	background-color: white;
+	opacity: 0.8;/* 투명도 1=100% 0.5=50% */
+}
+
+
+
+/* 메뉴 */
+.main_menu ul{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	padding: 30px;
+	width: 70%;
+}
+
+/* 포커스가 활성화 되었을때 테두리 제거 */
+*:focus{ outline: none;}
+/* 검색창 돋보기 이미지 크기 조정 */
+.searchbox img{ height: 15px;}
+
+/* 검색 input */
+.searchbox input{ border: none; padding: 5px;}
+/* 검색창 아래 선 */
+.searchbox{border-bottom: 1px solid black;}
+/* NEW 글씨 빨간색 넣기 */
+.new{color: red;}
+/* 로고 크기 조절 */
+.logo{ width: 150px;}
+
+
+/* ------------ 드랍 메뉴 ------------ */
+/* 부모에 position: relative; 상대위치 설정 해야함. */
+.drop_menu{position: relative;}
+
+/* */
+.drop_menu .sub_menu{
+	position: absolute; /* 절대위치 */
+	left: -40px; top: 15px;
+	
+	display: none; /* 숨김처리, 작업할때는 파악이 힘드니까 block 해두고 하기 */
+	width:115px;
+	background-color: white;
+
+	padding: 25px 0px 20px 0px;
+	text-align: center;
+}
+.sub_menu a{margin: 10px;}
+
+/* 해당 메뉴에 마우스를 올렸을때 */
+.drop_menu:hover .sub_menu{
+	display: block; /* 보이기 */
+}
+
+/* ------------ 대표이미지 ------------ */
+.main_img{ width: 100%; }
+
+
+
+/* ------------ 본문 ------------ */
+#content{ 
+	width :1600px; 
+	margin: 0 auto;
+	padding: 80px 0px;
+	text-align: center;
+}
+
+#content h3 {font-size: 20px; }
+#content p { font-size: 12px;}
+#content h3, #content p {margin: 0 auto;}
+
+
+/* ------------ 제품 1개에 대한 ------------ */
+
+.items{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.item {width: 380px; margin: 30px 0px;}
+.item img{ width: 100%; }
+.color span{ 
+	display: inline-block;
+	width: 10px; height: 10px;
+	border: 1px solid #dbdbdb;
+}
+
+.color_review{ /* 칼라와 리뷰수 가로 배치 */
+	display: flex;
+	justify-content: space-between;	
+}
+
+.review{ color: #808080; } /* 리뷰 수 색상 */
+
+/* 제품명, 사이즈 */
+.item_name{margin: 5px 0px 10px 0px;}
+.size{ color: #595959;}
+/* 제품 가격 */
+.item_price{position: relative; margin-bottom: 10px;}
+.item_price .discount{
+	position: absolute;
+	right: 0px; top: 0px; /* 오른쪽 상단 배치 */
+	font-size: 18px; 
+	color: red; 
+	font-weight: bold;
+}
+.price{
+	text-decoration: line-through; /* 취소선 */
+	color: #595959;}
+
+.item_icon img{
+	width: 40px;
+}
+
+/* ------------ 푸터 ------------ */
+
+.top_ft{background-color: #EFEFEF;} /* 상단푸터 배경색 */
+.content_ft{
+	width: 1400px; margin: 0 auto;
+	display: flex;
+	justify-content: space-evenly;
+	padding: 50px;
+}
+
+.content_ft h3{
+	margin: 10px 0px;
+	font-size: 16px;
+}
+
+.bottom_ft{
+	color: #A1A1A1;
+	font-size: 6px;
+	text-align: center;
+	margin: 40px 0px;
+}
+
+/* ------------ 팝업창 전체 구역 ------------ */
+
+#popup_wrap{
+	position: fixed;
+	right: 0px; top: 30%;
+}
+
+
+#popup_wrap li{
+	width: 25px; height: 25px;
+	background-color: #EFEFEF;
+	padding: 10px;
+	border: solid 1px gray; 
+	text-align: center;
+}
+
+#popup_wrap img{
+	width: 23px;
+}
+
+
+.popup_item{position: relative}
+
+.popup_item .sup_item{
+	position: absolute;
+	top: 5px; right: 52px;
+	display: none;
+	width: 80px; height: 15px;
+	background-color: black;
+	color: white;
+	padding: 10px;
+	border-radius: 10px; /* 둥근모서리 */
+}
+
+
+/* 팝업 아이콘에 마우스를 올렸을때 */
+.popup_item:hover .sup_item{
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

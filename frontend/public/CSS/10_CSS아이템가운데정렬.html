@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>10_CSS아이템가운데정렬</title>
+		<style type="text/css">
+		
+		 .box1{text-align: center;}
+		 .box2{margin: 0 auto; width: 50%;}
+		 .box3{justify-content: center;}
+		 
+		 
+		</style>
+</head>
+<body>
+
+			<!-- 가운데 정렬 방법 (주제의 차이가 있기는 하지만 여러가지 방법으로 가능)
+			본인한테
+			margin: 0 auto; (가로)
+			
+			
+			부모한테 써야함
+			플렉스 안써도됨
+			text-align: center; (가로) 가로 사이즈가 있어야 한다고 했음. 자동 여백 ㅇㅇ안됨
+			vertical-align: middle; 자동 여백이 안됨
+			 vs
+			써야함
+			justify-content: center; (가로)
+			align-item: center; 이건 세로!!!!!!!!!! -->
+			
+
+		<h3> 1. text-align: center; </h3>
+		<div class="box1"> 안녕하세요 </div>
+		
+		<h3> 2. margin: 0 auto; 본인 구역에 대한 정렬이라서. 사이즈를 넣어야함</h3>
+		<div class="box2"> 안녕하세요 </div>
+		
+		<h3> 3. justify-content: center; (텍스트만 있을땐 잘 사용x)</h3>
+		<div class="box3"> 안녕하세요 </div>
+		
+		<hr/>
+		
+		<h3> 1. text-align: center; div 안에 div가 있음 </h3>
+		<div class="box1"> <div> 안녕하세요 </div> <div> 안녕하세요 </div> </div>
+		
+		<h3> 2. margin: 0 auto; div 안에 div가 있음 </h3>
+		<div class="box2"> <div> 안녕하세요 </div> <div> 안녕하세요 </div> </div>
+		
+		<h3> 3. justify-content: center; (텍스트만 있을땐 잘 사용x) div 안에 div가 있음 </h3>
+		<div class="box3"> <div> 안녕하세요 </div> <div> 안녕하세요 </div> </div>
+</body>
+</html>

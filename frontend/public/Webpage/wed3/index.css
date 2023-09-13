@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+/* 바디 전체 배경색상 */
+body { background-color: #F5F6F7;}
+/* 기본여백제거 */
+*{ padding: 0px; margin: 0px; font-family:"맑은고딕";}
+/* a 태그의 기본값 설정 */
+a{ color: black; text-decoration: none;}
+/* 페이지 구역 박스 잡기 */
+#wrap{width: 460px; margin: 0 auto;}
+/* 헤더 로고 이미지 세로크기 정렬*/
+#header .h_logo img{ height: 50px;}
+/* 헤더 로고 구역을 정렬과 여백설정 */
+#header .h_logo{ text-align: center; margin: 50px 0px;}
+
+
+
+
+
+/* ------- 본문 ------- */
+.signup_input{ 
+	border: 1px solid #DADADA;
+	background-color: white;
+	padding: 10px;
+	display: flex;
+	flex-wrap: nowrap; /* 기본값 자식들의 요소가 커져쓸떄 줄바꿈 안한다! */
+	align-items: center; /* 세로정렬 */
+	margin: 5px 0px 10px 0px;
+}
+
+.input_id{
+	border: none; /* 입력창 테두리 삭제 */
+	width: 100%; height: 30px;
+}
+
+.signup_at{ color: #989898;}
+
+/* 포커스/커서가 들어왔을때의 액션 속성 */
+*:focus { outline: none;} /* 깜짝이는 커서와 마우스 올리면 나타나는 테두리를 삭제함 */
+
+
+/* 네이버 아이콘 배경으로 넣기 */
+.signup_icon{
+	background-image: url(https://static.nid.naver.com/images/ui/join/m_icon_pw_step.png);
+	width: 25px; height: 25px; /* 해당요소의 사이즈 */
+	background-size: 120px 75px;
+/* 	background-position-x: ;
+	background-position-y: ;  배경위치 x,y 좌표들*/
+}
+
+/* 생년월일 구역 */
+.birthbox{ display: flex;}
+/* 월 구역 */
+.birthM{ margin-left: 20px; margin-right: 20px; }
+
+.birthY, .birthM, .birthD{
+	width: 120px;
+}
+
+.info{
+	color: gray;
+	font-size: 7px;
+}
+
+/* 휴대전화 입력, 버튼 */
+.phonebox{
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0px;
+}
+
+/* 인증버튼 */
+.btn_auth{
+	background-color: #03C75A;
+	border: none; color: white;
+	width: 120px;
+	font-style: bold;
+	margin: 8px;
+}
+
+.input_phone{ width: 300px;}
+
+.auth_input, .input_auth{ 
+	background-color: #EEEEEE; 
+}
+
+/* 가입버튼 */
+.btn_signup{
+	background-color: #03C75A;
+	border: none; color: white;
+	font-style: bold;
+	margin: 25px 0px;
+	width: 100%; height: 45px;
+	font-size: 18px;
+}
+
+/* 푸터 상단 링크 구역 */
+
+#footer{
+	text-align: center;
+	margin-top: 30px;
+}
+.ft_top{
+	font-size: 8px;
+	color: gray;
+}
+
+.ft_sup{
+	display: flex;
+	justify-content: center; /* 가로가운데 */
+	align-items: center; /* 세로가운데 */
+	font-size: 5px;
+	color: gray;
+	margin-bottom: 20px;
+}
+
+.ft_sup img{
+	height: 10px;
+	padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

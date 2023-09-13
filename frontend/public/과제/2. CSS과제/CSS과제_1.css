@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+
+.title{
+	border-left: solid 8px green;
+	padding-left: 10px;
+}
+
+
+.box1{
+	border: solid 2px #9AA3A3;
+	background-color: #E7E9E9;
+	border-radius: 5px;
+	padding-left: 20px;
+	width: 400px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding: 10px 20px;
+	line-height: 150%;
+}
+
+.content{
+	margin-bottom: 10px;
+}
+
+.box2{
+	border: solid 2px #9AA3A3;
+	border-radius: 10px;
+	width: 300px;
+	padding-left: 25px;
+	margin-left: 40px;
+	margin-top: 20px;
+	padding: 10px 10px;
+}
+
+.text{
+	border-top: dotted 1px gray;
+	text-align: right;
+	padding-top: 20px;
+}

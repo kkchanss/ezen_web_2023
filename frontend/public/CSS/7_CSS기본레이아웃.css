@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+
+#wrap{
+	width: 1200px; /* 가로사이즈 */
+	margin: 0 auto; /* 구역/박스 가로 가운데 정렬 */
+}
+
+#header{
+	background: skyblue;
+	height: 200px; /* 높이사이즈 */
+}
+
+#content{
+	background: orange;
+	height: 600px;
+	display: flex; /* 하위요소의 배치 기본값은 row */
+}
+#left_menu{
+	background: gray;
+	width: 800px;
+}
+
+#right_menu{
+	background: purple;
+	width: 400px;
+}
+
+#footer{
+	background: black;
+	height: 50px;
+}
