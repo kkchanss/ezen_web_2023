@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+/* 키오스트 전체 구역 */
+.kioskwrap{
+	font-family:'TheJamsil5Bold';
+	width: 700px; height: 1000px;
+	margin: 50px auto;
+}
+
+/* 키오스크 헤더구역 이미지 */
+.himg{
+	width: 100%;
+	/* 비율 깨질때 맞추기 그러나 이미지 깨질수 있음. */
+	object-fit: cover;
+}
+
+/* 카테고리 */
+.categorymenu{
+	display: flex; /* 하위 요소의 가로배치 */
+	justify-content: space-around;
+	padding-top: 10px;
+}
+
+
+/* 선택 안된 카테고리 */
+.categorymenu li{
+	color: gray;
+}
+
+/* 선택 된 카테고리 */
+.categoryselect{
+	color: red !important; /* 겹칠때 !important 작성하면 우선순위 */
+	border-bottom: 3px solid red;
+	padding-bottom: 3px;
+}
+
+/* 제품들이 출력되는 구역 */
+.productbox{ 
+	height: 450px; 
+	display: flex;
+	flex-wrap: wrap;
+	overflow-y: scroll; /* 만약에 자식 요소들이 현재 구역보다 더 커지면 ?! */
+}
+
+/* 제품 1개에 대한 CSS */
+	/* 전체의 가로 사이즈가 700px; 나누기 가로당 제품 수  */
+.product{ 
+	width: 30%; 
+	text-align: center; 
+	margin: 5px 10px 30px 10px;
+}
+.product img { width: 100%; }
+.product .pprice{ color: red; }
+
+
+/* 장바구니 출력 구역 */
+.kioskcontent{ position: relative;}
+.cartbox{
+	height: 280px; 
+	background-color: #eeeeee;
+}
+
+/* 장바구니 상단 부분 */
+.carttop{
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 50px;
+}
+
+/* 장바구니 내 제품수 원형 */
+.ccount{
+	background-color: red;
+	border-radius: 15px;
+	font-size: 13px;
+	display: inline-block; /* inline-block : 사이즈적용 o, 한줄차지x */
+	width: 30px;
+	text-align: center;
+	color: white;
+	margin-left: 5px;
+}
+
+/* 장바구니 내 제품 총금액 */
+.ctotal{ color: red; }
+
+
+
+/* 장바구니 내 제품 출력 구역 */
+.cartbottom{
+	/* 플렉스는 자식요소의 크기를 자동으로 줄인다. -> 이를 방지하려면 최소값 사이즈 주기 ! */
+	display: flex;
+	overflow-x: scroll;
+}
+
+/* 장바구니 내 제품 1개 */
+.citem{
+	width: 25%; min-width: 25%;/* 플랙스로 줄어드는 사이즈를 방지하기위해 최소사이즈 설정함 !  */
+	background-color: white;
+	padding: 10px;
+	margin: 5px 10px 20px 10px;
+}
+.citem{ position: relative; }
+.icencel{ position: absolute; top: 7px; right: 10px; }
+.iname{ width: 80%; height: 70px; }
+.iprice{ color: red; }
+
+
+/* 장바구니 하단 버튼 */
+.cartbtn{
+	display: flex;
+	width: 100%;
+}
+
+.cartbtn button{
+	position: absolute;
+	width: 50%; height: 70px;
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	color: white;
+	bottom: 0px;
+}
+
+.cencelbtn{ background-color: black; }
+.cencelbtn:hover { background-color: #5D5D5D;}
+.orderbtn{ background-color: red; right: 0px;}
+.orderbtn:hover{ background-color: #FF3C3C;}

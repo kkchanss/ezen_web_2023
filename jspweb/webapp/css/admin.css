@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+/* ---------------- 기본값 ---------------- */
+*{padding: 0px; margin: 0px;}
+li{list-style-type: none;}
+a{color: black; text-decoration: none;}
+.admin_wed{
+	height: 100%;
+	background-color: #F6F6F6;
+	padding: 150px 150px;
+}
+
+
+/* ---------------- 관리자 페이지 전체 구역 ---------------- */
+.admin_wed2{
+	display: flex;	
+	justify-content: center;
+
+}
+
+.menu_L{
+	padding: 50px 50px;
+	width: 10%;
+	
+}
+
+.menu_L h3, .menu_R h2{
+	padding-bottom: 20px;
+	
+}
+
+.menu_R{
+	border-left: solid 1px #D0CACD;
+	padding: 50px 50px;
+	width: 50%;
+}
+

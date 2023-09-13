@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+
+/* 달력 전체 구역 */
+.calwrap{width: 1200px; margin: 50px auto;}
+
+
+/* 달력 상단 구역 */
+.caltop{
+	display: flex; 
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+.caltop button{
+	background-color: white;
+	border: none;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer; /* (커서) 마우스 모양을 바꿀수 있음 */
+}
+
+.caltop button:hover{color: gray;}
+.caltop h3{margin: 0 15px;}
+
+
+/* 달력 날짜 표시 구역 */
+.calender{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* 요일 구역 */
+.week{
+	height: 30px !important;
+	background-color: #e8e8e8;
+	font-size: 18px;
+	text-align: center;
+}
+
+/* 일요일 */
+.sunday{
+	background-color: red !important; color: white;
+}
+
+/* 달력 1개 구역 */
+.calender div{
+	width: 165px;
+	border: 1px solid #eeeeee;
+	border-collapse: collapse;
+	height: 100px;
+}
+
+
+/* 모달 전체 구역 */
+.modalwrap{
+	position: fixed; /* 화면 고정 */
+	width: 100%; height: 100%;
+	top: 0px;
+	/* rgb : 0 ~255 색상 조합 / rgba : 투명도 포함 */
+	background-color: rgba( 0, 0, 0, 0.5 );
+	/* 자식요소 -> 내용 박스 가운데로 */
+	display: flex; justify-content: center; align-items: center;
+	/* display 이용한 모달 끄기 / 켜기 */
+}
+
+/* 모달 내용 박스 구역 */
+.modal{
+	background-color: white;
+	width: 500px; height: 300px;
+	padding: 15px;
+	border-radius: 30px;
+}
+
+/* 일정출력 */
+.content{
+	margin: 3px; padding: 3px;
+	font-size: 10px;
+	display: block; /* span 태그의 기본값은 inline 이라서 가로 사이즈 적용이 안된다. */
+	/* 만약에 해당 구역보다 내용물(텍스트)가 더 커지면 ... 으로 표시해서 잘라야한다. */
+	overflow: hidden; /* 넘치면 넘치는 부분 숨기기 */
+	white-space: nowrap; /* 만약에 텍스트가 커지면 자동 줄바꿈을 해제 */
+	text-overflow: ellipsis; /* 생략이라는 뜻으로   ... << 이 점들을 표시해줌 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
