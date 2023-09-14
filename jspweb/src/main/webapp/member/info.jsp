@@ -19,7 +19,7 @@
 			<h2> 마이페이지 </h2>
 			
 			<div class="intitle">프로필 변경</div>
-			<input onchange="preimg(this)" name="mimg" class="mimg" type="file">
+			<input onchange="preimg( this )" name="mimg" class="mimg" type="file" accept="image/*" />
 			<img class="preimg" alt="" src="img/default.webp"> 
 			
 			<div class="intitle">아이디</div>
@@ -47,3 +47,7 @@
 
 </body>
 </html>
+
+
+
+

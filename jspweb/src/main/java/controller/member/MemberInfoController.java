@@ -133,46 +133,47 @@ public class MemberInfoController extends HttpServlet {
 	}
 	// 3. 회원수정 
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MultipartRequest m = new MultipartRequest(
+		
+		// multipart/form-data 전송 요청 // cos.jar[ MultipartRequest클래스]
+		
+		// ------------------------- 파일 업로드 ---------------------------- //
+		MultipartRequest multi = new MultipartRequest(
 				request, 
-				request.getServletContext().getRealPath("/member/img"),
+				request.getServletContext().getRealPath("/member/img") , 
 				1024*1024*10,
-				"UTF-8",
-				new DefaultFileRenamePolicy()
-		);
-		
-		String mimg = m.getFilesystemName("mimg");
-		
-		Object object = request.getSession().getAttribute("loginDto");
-		MemberDto dto = (MemberDto)object;
-		int loginMno = dto.getMno();
-		String mid = dto.getMid();
-		boolean result = MemberDao.getInstance().mupdate(loginMno, mimg);
-		
-		if(result == true) {
-			// 1. 세션에 저장할 데이터를 요청.
-			MemberDto loginDto = MemberDao.getInstance().info(mid);
-			// 2. 세션에 [로그인 성공한 회원의 정보(loginDto) ]저장한다.
-			request.getSession().setAttribute( "loginDto", loginDto );
+				"UTF-8" ,
+				new DefaultFileRenamePolicy() );
+		// ------------------------- DB 업데이트 ---------------------------- //
+		// * form 전송일때는 input의 데이터 호출시 
+			// 일반 input : multi.getParameter("input name속성명");
+			// 첨부 input : multi.getFilesystemName("input name속성명");
+		String mimg = multi.getFilesystemName("mimg");
+		// Dao [ 로그인된 회원번호 , 수정할 사진이름 ] 
+			Object object = request.getSession().getAttribute("loginDto");
+			MemberDto memberDto = (MemberDto)object;
+			int loginMno = memberDto.getMno();
+			
+		// *만약에 수정할 첨부파일 이미지 가 없으면
+		if( mimg == null ) { // 기존 이미지 그대로 사용  
+			mimg = memberDto.getMimg(); // 세션에 있던 이미지 그대로 대입 
 		}
-		
-		response.setContentType("application/json; charset=utf-8");
-		response.getWriter().print(  result );
-		
+		boolean result =  MemberDao.getInstance().mupdate(loginMno, mimg);
+		response.setContentType("application/json;charset=utf-8"); 
+		response.getWriter().print(result);
 	}
 	// 4. 회원삭제 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String mpwd = request.getParameter("mpwd");
-		
-		Object session = request.getSession().getAttribute("loginDto");
-		//2. 타입변환한다. [ 부 -> 자  (캐스팅/강제타입변환) ]
-		MemberDto loginDto = (MemberDto)session;
-		
-		boolean result = MemberDao.getInstance().mdelete(mpwd, loginDto.getMid());
-		
-		response.setContentType("application/json; charset=utf-8");
-		response.getWriter().print(result);
+		String mpwd = request.getParameter("mpwd"); // 1. 요청한다.
+		// 2. 유효성검사/객체화 
+		// 3. DAO 처리 [ 현재로그인된 회원번호[pk] , 입력받은 패스워드[mpwd] ]
+			// 1. 현재로그인된 회원정보 => 세션 
+				// int loginMno = ( (MemberDto)request.getSession().getAttribute("loginDto") ).getMno();
+			Object object = request.getSession().getAttribute("loginDto");	// 1. 로그인 세션 호출 한다.
+			MemberDto memberDto = (MemberDto)object; // 2. 타입 변환한다.
+			int loginMno = memberDto.getMno(); // 3. 로그인객체에 회원번호만 호출한다.
+			
+			boolean result = MemberDao.getInstance().mdelete(loginMno, mpwd); // 2. Dao 전달해서 결과 받기 
+			response.setContentType("application/json;charset=utf-8"); response.getWriter().print(result); // 4. 응답한다.
 	}
 
 }
@@ -184,3 +185,18 @@ public class MemberInfoController extends HttpServlet {
  		kb : 1024byte -> 1kb
  		mb : 1024kb -> 1mb
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

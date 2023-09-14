@@ -122,3 +122,12 @@ function onSearch(){
 		- URL에서 매개변수 호출 
 			new URL(location.href).searchParams.get("변수명")			
 */
+
+
+
+
+
+
+
+
+

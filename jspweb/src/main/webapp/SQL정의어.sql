@@ -84,3 +84,7 @@ create table productimg(
     primary key ( pimgno ) , 
     foreign key( pno ) references product( pno ) on delete cascade on update cascade
 );
+
+
+
+

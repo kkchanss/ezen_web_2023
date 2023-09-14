@@ -28,12 +28,10 @@
 /* 메시지 내용 */
 .subcont{ display: flex; align-items: flex-end; }
 .date{  font-size: 10px; margin: 0px 5px; } /* 메시지 시간 */
-
-.content {
-    padding: 10px;
-    border-radius: 5px;
-    width: 80%;
-    word-break: break-all;
+.content{  
+	padding: 10px; border-radius: 5px; 
+	max-width: 80%; /* 최대 가로사이즈 */
+	word-break: break-all; /* 내용일 넘쳤을때 자동줄바꿈 */
 }
 
 /* 보냈을때 = 오른쪽 배치 , 노랑색배경 */
@@ -73,3 +71,51 @@
 }
 /* 이모티콘 이미지 크기 */ 
 .dropdown .emolistbox img{ width: 70px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

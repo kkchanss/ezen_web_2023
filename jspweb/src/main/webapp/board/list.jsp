@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<link href="/jspweb/css/list.css" rel="stylesheet"/>
+	<link href="/jspweb/css/board/list.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -68,3 +68,21 @@
 	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

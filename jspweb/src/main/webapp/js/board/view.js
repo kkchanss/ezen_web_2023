@@ -70,3 +70,27 @@ function onUpdate( bno ){
 	// 1. 수정페이지로 이동
 	location.href=`/jspweb/board/update.jsp?bno=${ bno }`;
 } // f end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

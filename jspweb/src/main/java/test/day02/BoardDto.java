@@ -3,8 +3,8 @@ package test.day02;
 public class BoardDto {
 	
 	private String title;
-	private String content; 
-	
+	private String content;
+
 	public BoardDto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -30,10 +30,11 @@ public class BoardDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return "BoardDto [title=" + title + ", content=" + content + "]";
 	}
+	
+	
 }

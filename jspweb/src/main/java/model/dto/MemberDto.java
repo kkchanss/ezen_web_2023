@@ -7,7 +7,7 @@ public class MemberDto {
     private String mid; 
     private String mpwd; 
     private String memail ;
-    private String mimg;
+    private String  mimg ;
     	// 1-2 DB 없는 필드 
     private String loginDatetime; // 로그인 시간
     
