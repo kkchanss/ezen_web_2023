@@ -1,0 +1,85 @@
+/* Apply styles to the entire page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+/* Style for the main wrapper */
+.accountBookWrap {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the writing section */
+.accountBook_Top {
+  margin-bottom: 20px;
+}
+
+.acontent,
+.aprice,
+.adate {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style for the category headers */
+.category {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* Style for the output section */
+.accountBook_Bottom {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.comView {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.abutton button {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+/* Style for responsive design */
+@media screen and (max-width: 600px) {
+  .accountBookWrap {
+    padding: 10px;
+  }
+
+  .category {
+    display: none;
+  }
+
+  .comView {
+    flex-direction: column;
+    text-align: center;
+  }
+}
