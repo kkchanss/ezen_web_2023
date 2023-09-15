@@ -203,52 +203,6 @@ function fileDelete( i ){  fileList.splice( i , 1 ); fileListPrint(); }
 	
 */
 	
-function selectAll() { 
-	
-	$.ajax({
-		url : '서블릿주소', 
-		data : {type : 'selectAll'},
-		method : "get",
-		success : r => {}
-	})
-}
-
-function selectLocation() {
-	
-	$.ajax({
-		url : '서블릿주소', 
-		data : {type : 'selectLocation', e : e, 
-		w : w, s : s, n : n },
-		method : "get",
-		success : r => {}
-	})
-}
-
-function selectOne() {
-	
-	$.ajax({
-		url : '서블릿주소', 
-		data : {type:'selectOne', pno:pno},
-		method : "get",
-		success : r => {}
-	})
-}
-
-function selectAdmin() {
-	
-	$.ajax({
-		url : '서블릿주소', 
-		data : {type:'selectAdmin', page:page,
-		listsize : listsize, startlist : startlist},
-		method : "get",
-		success : r => {}
-	})
-}
-
-
-
-
-
 
 
 

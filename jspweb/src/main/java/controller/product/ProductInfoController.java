@@ -128,26 +128,28 @@ public class ProductInfoController extends HttpServlet {
 		ObjectMapper objectMapper = new ObjectMapper();
 		String json = "";
 		
-		if(type.equals("seletAll")) {
+		if(type.equals("findByAll")) {
 			ArrayList<ProductDto> result = ProductDao.getInstance().selectAll();
 			json = objectMapper.writeValueAsString(result);
-		}else if(type.equals("selectLocation")) {
+		}else if(type.equals("findByLatLng")) {
 			double e = Double.parseDouble(request.getParameter("e"));
 			double w = Double.parseDouble(request.getParameter("w"));
 			double s = Double.parseDouble(request.getParameter("s"));
 			double n = Double.parseDouble(request.getParameter("n"));
 			ArrayList<ProductDto> result = ProductDao.getInstance().selectLocation(e,w,s,n);
 			json = objectMapper.writeValueAsString(result);
-		}else if(type.equals("selectOne")) {
+		}else if(type.equals("findByPno")) {
 			int pno = Integer.parseInt(request.getParameter("pno"));
 			ProductDto result = ProductDao.getInstance().selectOne(pno);
 			json = objectMapper.writeValueAsString(result);
-		}else if(type.equals("selectAdmin")) {
-			int page = Integer.parseInt(request.getParameter("page"));
-			int listsize = Integer.parseInt(request.getParameter("listsize"));
-			int startlist = Integer.parseInt(request.getParameter("startlist"));
-			ArrayList<ProductDto> result = ProductDao.getInstance().selectAdmin(listsize,startlist);
-			json = objectMapper.writeValueAsString(result);
+		}else if(type.equals("findByTop")) {
+			int count = Integer.parseInt(request.getParameter("count"));
+//			int page = Integer.parseInt(request.getParameter("page"));
+//			int listsize = Integer.parseInt(request.getParameter("listsize"));
+//			int startlist = Integer.parseInt(request.getParameter("startlist"));
+//			ArrayList<ProductDto> result = ProductDao.getInstance().selectAdmin(listsize,startlist);
+			
+			//json = objectMapper.writeValueAsString(result);
 		}
 		
 		response.setContentType("application/json;charset=UTF-8");
