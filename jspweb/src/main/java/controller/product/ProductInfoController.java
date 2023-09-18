@@ -131,7 +131,9 @@ public class ProductInfoController extends HttpServlet {
 		if( type.equals("findByTop") ) 			{ 
 			int count = Integer.parseInt( request.getParameter("count") );
 			List<ProductDto> result =  ProductDao.getInstance().findByTop( count );
+			System.out.println("result" + result);
 			json = mapper.writeValueAsString(result);
+			
 		}
 		else if( type.equals("findByLatLng") ) 	{ 
 			String east = request.getParameter("east");		String west = request.getParameter("west");
@@ -148,8 +150,8 @@ public class ProductInfoController extends HttpServlet {
 			List<ProductDto> result = ProductDao.getInstance().findByAll();	
 			json = mapper.writeValueAsString(result);
 		}
-		
-		response.setCharacterEncoding("application/json;charset=UTF-8");
+		System.out.println("json" + json);
+		response.setContentType("application/json;charset=UTF-8");
 		response.getWriter().print( json );
 	}
 	// 3. 제품 수정 
