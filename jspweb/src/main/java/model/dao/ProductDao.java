@@ -99,9 +99,9 @@ public class ProductDao extends Dao {
 	public List<ProductDto> findByLatLng( String east , String west , String south , String north ){ 
 		try { 	// 제품의 경도가 '동쪽' 작고 경도가 '서쪽' 크고 / 제품의 경도가 '남쪽' 작고 '북쪽' 크다. 
 			List<ProductDto> list = new ArrayList<>();
-			String sql = "select pno from product where plat between ? and ? and plng between ?and ? order by pdate;";
+			String sql = "select pno from product where plat between ? and ? and plng between ?and ? order by pdate desc";
 			ps = conn.prepareStatement(sql);  
-			ps.setString( 4 , east ); ps.setString( 1 , west ); ps.setString( 3 , south ); ps.setString( 2 , north );
+			ps.setString( 4 , east ); ps.setString( 1, west ); ps.setString( 3 , south ); ps.setString( 2 , north );
 			rs = ps.executeQuery();	System.out.println( ps );
 			while( rs.next() ) {  list.add( findByPno( rs.getInt("pno") ) ); 	} return list;
 		} catch (Exception e) { System.out.println(e); } return null; 
@@ -114,8 +114,43 @@ public class ProductDao extends Dao {
 			while( rs.next() ) {  list.add( findByPno( rs.getInt("pno") ) ); 	} return list;
 		} catch (Exception e) { System.out.println(e); } return null; 
 	}
+	
+	
+	// 3. 제품 찜하기 등록(=찜하기상태가 아닐때=조건에따른 레코드없을때) / 취소(=찜하기상태 일때=조건에따른 레코드있을때)
+	public boolean setWish( int mno , int pno) {
+		try {
+			String sql = getWish(mno, pno) ? 
+						"delete from pwishlist where mno = ? and pno = ?" : 
+						"insert into pwishlist values( ? , ? )";
+			ps = conn.prepareStatement(sql);
+			ps.setInt( 1 , mno); ps.setInt( 2, pno);
+			int count = ps.executeUpdate();
+			if( count == 1 ) { return true; }
+		}catch (Exception e) { e.getStackTrace(); }
+		return false;
+	}
+	// 4. 제품 찜하기 상태 출력
+	public boolean getWish( int mno , int pno ) {
+		try { String sql ="select * from pwishlist where mno = ? and pno = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt( 1 , mno ); ps.setInt( 2 , pno);
+			rs = ps.executeQuery(); if( rs.next() ) { return true; }
+		}catch (Exception e) { e.getStackTrace(); }
+		return false;
+	}
+	
+	// 5. 현재 로그인된 회원의 찜한 제품[여러개] 정보를 출력하는 함수 
+	public List<ProductDto> getWishProdutList( int mno ){
+		List<ProductDto> list = new ArrayList<>();
+		try { // 현재 회원이 찜한 제품번호 찾기 
+			String sql = "select pno from pwishlist where mno = "+ mno; // 현재 회원의 찜하기 제품번호 목록 찾기 
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			// 현재 회원이 찜한 제품번호의 레코드반환 // 찾은 제품번호 하나씩 findByPno() 함수에게 전달해서 제품정보를 list 담기
+			while( rs.next() ) { list.add( findByPno( rs.getInt("pno") ) ); }
+		}catch (Exception e) { e.getStackTrace();} return list;
+	}
 }
-
 /*
  * 						// 	Map<Integer, String>			: map객체명.keySet() : map객체내 모든 키 호출 
 						//	Map<Integer, String>			: map객체명.values() : map객체내 모든 값 호출 
